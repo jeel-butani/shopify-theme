@@ -11,6 +11,31 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
+    "announcement_bar_YJrw8K": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_egqWAB": {
+          "type": "announcement",
+          "settings": {
+            "text": "🌿 Free UK Shipping over £45  ·  Subscribe & Save 20%  ·  GMP Certified & UK Made",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_egqWAB"
+      ],
+      "name": "t:sections.announcement-bar.presets.name",
+      "settings": {
+        "color_scheme": "scheme-f4277a76-82cb-4939-ba61-a33c30c05bb9",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -32,6 +57,7 @@
     }
   },
   "order": [
+    "announcement_bar_YJrw8K",
     "header"
   ]
 }

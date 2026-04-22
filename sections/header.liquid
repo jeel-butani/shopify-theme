@@ -13,6 +13,12 @@
 
 
 <style>
+.header.page-width {
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
@@ -64,6 +70,69 @@
     line-height: calc(1 + 0.8 / var(--font-body-scale));
   }
 
+  .header__inline-menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header__icons {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .list-menu__item--link {
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Container */
+  .custom-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Circle icons */
+  .custom-header-right .header__icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #3b6db3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+  }
+
+  /* Icon size */
+  .custom-header-right .header__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .cart-count-bubble {
+    top: 2px;
+    right: 2px;
+    background: #3b6db3;
+    color: #fff;
+  }
+
+  /* Button */
+  .subscribe-btn {
+    background: #3b6db3;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px
+  }
+
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
       padding-bottom: 0.5rem;
@@ -74,7 +143,10 @@
 
 {%- style -%}
   .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .section-header {
@@ -200,7 +272,7 @@
       {%- endif -%}
     {%- endif -%}
 
-    <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
+    <div class="custom-header-right" {% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <localization-form class="small-hide medium-hide" data-prevent-hide>
@@ -277,6 +349,9 @@
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
         {%- endif -%}
+      </a>
+<a href="/collections/all" class="subscribe-btn">
+        SUBSCRIBE & SAVE
       </a>
     </div>
   </header>

@@ -1,0 +1,159 @@
+.about-mission {
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+}
+
+.mission-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.mission-title {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  word-spacing: 100vw;
+}
+
+.mission-title .highlight-color {
+  color: #00c9a7;
+}
+
+.mission-subtitle {
+  font-size: 16px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.mission-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.mission-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.mission-item {
+  display: flex;
+  gap: 20px;
+}
+
+.mission-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.mission-item-content {
+  flex: 1;
+}
+
+.mission-item-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.mission-item-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.highlight-box {
+  background: #1a1a1a;
+  color: white;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.highlight-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  margin-top: 0;
+}
+
+.highlight-accent {
+  color: #00c9a7;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.highlight-list li {
+  font-size: 14px;
+  padding: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .mission-content {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-title {
+    font-size: 32px;
+  }
+  
+  .mission-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .highlight-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-mission {
+    padding: 40px 16px;
+  }
+  
+  .mission-title {
+    font-size: 24px;
+  }
+  
+  .mission-subtitle {
+    font-size: 14px;
+  }
+  
+  .mission-item {
+    gap: 12px;
+  }
+  
+  .mission-number {
+    font-size: 24px;
+  }
+  
+  .highlight-box {
+    padding: 24px;
+  }
+  
+  .highlight-title {
+    font-size: 16px;
+  }
+}

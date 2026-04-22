@@ -1,0 +1,121 @@
+{{ 'section-about-our-mission.css' | asset_url | stylesheet_tag }}
+
+<div class="about-mission">
+  <div class="page-width">
+    <div class="mission-header">
+      <h2 class="mission-title">{{ section.settings.section_title | split: ' ' | slice: 0, -1 | join: ' ' }}<span class="highlight-color">{{ section.settings.section_title | split: ' ' | last }}</span></h2>
+      <p class="mission-subtitle">{{ section.settings.section_subtitle }}</p>
+    </div>
+
+    <div class="mission-content">
+      <div class="mission-list">
+        {%- for block in section.blocks -%}
+          <div class="mission-item">
+            <div class="mission-number">{{ block.settings.number }}</div>
+            <div class="mission-item-content">
+              <h3 class="mission-item-title">{{ block.settings.title }}</h3>
+              <p class="mission-item-description">{{ block.settings.description }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="mission-highlights">
+        <div class="highlight-box highlight-box-primary">
+          <h3 class="highlight-title">Nature & Science Are <span class="highlight-accent">Perfect Partners</span></h3>
+          <ul class="highlight-list">
+            <li>Plant-Sourced</li>
+            <li>Scientifically Tested</li>
+            <li>Sustainable Sourced</li>
+            <li>Zero Fillers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Our Mission",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Our Mission"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "To empower people to take control of their health through scientifically-proven, naturally-sourced supplements with complete transparency."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mission_item",
+      "name": "Mission Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Evidence-Led Formulation"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Every ingredient in our supplements is selected based on scientific research."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About - Our Mission",
+      "blocks": [
+        {
+          "type": "mission_item",
+          "settings": {
+            "number": "01",
+            "title": "Evidence-Led Formulation",
+            "description": "Every ingredient in our supplements is selected based on scientific research and clinical studies to ensure maximum efficacy."
+          }
+        },
+        {
+          "type": "mission_item",
+          "settings": {
+            "number": "02",
+            "title": "Certified Botanical Sourcing",
+            "description": "We partner with certified organic suppliers who share our commitment to sustainability and quality."
+          }
+        },
+        {
+          "type": "mission_item",
+          "settings": {
+            "number": "03",
+            "title": "UK GMP Manufacturing",
+            "description": "Our products are manufactured in UK-certified facilities under strict quality control standards."
+          }
+        },
+        {
+          "type": "mission_item",
+          "settings": {
+            "number": "04",
+            "title": "Clean Formulas, Always",
+            "description": "No artificial additives, no unnecessary fillers, no compromises on purity and integrity."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

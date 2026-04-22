@@ -11,13 +11,13 @@
   "current": {
     "logo": "shopify://shop_images/wellscience-logo.png",
     "logo_width": 160,
-    "type_header_font": "dm_sans_n5",
-    "heading_scale": 135,
-    "type_body_font": "jost_n4",
+    "type_header_font": "montserrat_n4",
+    "heading_scale": 100,
+    "type_body_font": "montserrat_n4",
     "body_scale": 100,
     "page_width": 1000,
     "spacing_sections": 0,
-    "spacing_grid_horizontal": 12,
+    "spacing_grid_horizontal": 4,
     "spacing_grid_vertical": 12,
     "animations_reveal_on_scroll": true,
     "animations_hover_elements": "default",
@@ -214,9 +214,9 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#f4f4f4",
+          "background": "rgba(0,0,0,0)",
           "background_gradient": "",
-          "text": "#001128",
+          "text": "#000000",
           "button": "#b7aca2",
           "button_label": "#3870c3",
           "secondary_button_label": "#3870c3",
@@ -276,6 +276,17 @@
           "button_label": "#262626",
           "secondary_button_label": "#001128",
           "shadow": "#001128"
+        }
+      },
+      "scheme-f4277a76-82cb-4939-ba61-a33c30c05bb9": {
+        "settings": {
+          "background": "#4a5344",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#b7aca2",
+          "button_label": "#3870c3",
+          "secondary_button_label": "#3870c3",
+          "shadow": "#3870c3"
         }
       }
     }

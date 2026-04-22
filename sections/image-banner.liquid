@@ -20,6 +20,11 @@
         display: block;
       }
     }
+    .page-width {
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
   {%- endstyle -%}
 {%- endif -%}
 
@@ -128,7 +133,7 @@
             </h2>
           {%- when 'text' -%}
             <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
-              <p>{{ block.settings.text }}</p>
+              <p style="text-align: center;">{{ block.settings.text }}</p>
             </div>
           {%- when 'buttons' -%}
             <div

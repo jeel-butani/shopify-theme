@@ -31,6 +31,20 @@
   }
 
   @media screen and (min-width: 750px) {
+    .collection__title.title-wrapper {
+      margin-top: 5rem;
+    }
+
+    .collection__description {
+      margin-bottom: 5rem;
+    }
+  }
+
+  .collection__description {
+    text-align: center;
+  }
+
+  @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -68,8 +82,15 @@
   >
     <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
       {%- if section.settings.title != blank -%}
+        {% assign words = section.settings.title | split: ' ' %}
         <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-          {{ section.settings.title }}
+          {% for word in words %}
+            {% if forloop.last %}
+              <em class="blue">{{ word }}</em>
+            {% else %}
+              <span class="green">{{ word }}</span>
+            {% endif %}
+          {% endfor %}
         </h2>
       {%- endif -%}
       {%- if section.settings.description != blank

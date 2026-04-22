@@ -44,7 +44,7 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    padding: 0 5%; 
+    padding: 0 10%; 
     height: 100%; 
     display: flex;
     flex-direction: column;
@@ -65,12 +65,14 @@
     color: {{ section.settings.heading_color }};
     letter-spacing: -0.02em;
     margin-bottom: 20px;
+    display: flex;
+    text-align: center;
   }
 
   #hero-nature-{{ section.id }} .hero-nature__buttons {
     display: flex;
     gap: 14px;
-    justify-content: flex-end;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
@@ -114,7 +116,7 @@
   #hero-nature-{{ section.id }} .hero-nature__badges {
     display: flex;
     gap: 32px;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 24px 0 36px;
   }
 
@@ -127,7 +129,7 @@
 
   #hero-nature-{{ section.id }} .hero-nature__badge-value {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 500;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -189,7 +191,7 @@
   <div class="hero-nature__content">
     <div class="hero-nature__text-wrapper">
       {%- if section.settings.heading != blank -%}
-        <span class="hero-nature__heading">{{ section.settings.heading }}</span>
+        <div class="hero-nature__heading">{{ section.settings.heading }}</div>
       {%- endif -%}
 
       <div class="hero-nature__buttons">

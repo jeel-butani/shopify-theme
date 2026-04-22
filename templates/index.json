@@ -9,6 +9,360 @@
  */
 {
   "sections": {
+    "hero_banner_nature_new": {
+      "type": "hero-banner-nature",
+      "settings": {
+        "heading": "Restore Your Gut Balance.",
+        "heading_color": "#ffffff",
+        "button_label_1": "SHOP DIGESTIDETOX",
+        "button_link_1": "shopify://collections/all",
+        "button_primary_bg": "#3871c0",
+        "button_primary_text": "#ffffff",
+        "button_label_2": "YUR HEALTH",
+        "button_link_2": "",
+        "badge_1_value": "4.9+",
+        "badge_1_label": "Rating",
+        "badge_2_value": "12K+",
+        "badge_2_label": "Happy Customers",
+        "badge_3_value": "100%",
+        "badge_3_label": "Natural"
+      }
+    },
+    "icon_trust_bar_new": {
+      "type": "icon-trust-bar",
+      "blocks": {
+        "icon_1": {
+          "type": "icon_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/image-Photoroom_91_1.jpg",
+            "icon_type": "leaf",
+            "label": "30-Day Guarantee"
+          }
+        },
+        "icon_2": {
+          "type": "icon_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/image-Photoroom_89_1.jpg",
+            "icon_type": "shield",
+            "label": "GMP Certified"
+          }
+        },
+        "icon_3": {
+          "type": "icon_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/image-Photoroom_90_1.jpg",
+            "icon_type": "science",
+            "label": "Sustainable"
+          }
+        },
+        "icon_4": {
+          "type": "icon_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/image-Photoroom_87_1.jpg",
+            "icon_type": "globe",
+            "label": "100% Natural"
+          }
+        }
+      },
+      "block_order": [
+        "icon_1",
+        "icon_2",
+        "icon_3",
+        "icon_4"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "icon_bg_color": "#ffffff",
+        "icon_color": "#2d7a3a",
+        "text_color": "#333333"
+      }
+    },
+    "marquee_z4pmdh": {
+      "type": "marquee",
+      "blocks": {
+        "text_QQeGKU": {
+          "type": "text",
+          "settings": {
+            "new_text": "100% Natural Ingredients"
+          }
+        },
+        "text_Wn7fMV": {
+          "type": "text",
+          "settings": {
+            "new_text": "GMP Certified Manufacturing"
+          }
+        },
+        "text_G9baNi": {
+          "type": "text",
+          "settings": {
+            "new_text": "Free UK Shipping over £45"
+          }
+        },
+        "text_GWzDMb": {
+          "type": "text",
+          "settings": {
+            "new_text": "Subscribe & Save 20%"
+          }
+        },
+        "text_4DdGWd": {
+          "type": "text",
+          "settings": {
+            "new_text": "30-Day Money-Back Guarantee"
+          }
+        },
+        "text_gYBAbX": {
+          "type": "text",
+          "settings": {
+            "new_text": "MHRA Registered"
+          }
+        }
+      },
+      "block_order": [
+        "text_QQeGKU",
+        "text_Wn7fMV",
+        "text_G9baNi",
+        "text_GWzDMb",
+        "text_4DdGWd",
+        "text_gYBAbX"
+      ],
+      "name": "Marquee",
+      "settings": {
+        "colorBackground": "#6a7462",
+        "colorText": "#ffffff",
+        "link": "",
+        "marquee_height": 36,
+        "font_size": 12
+      }
+    },
+    "featured_collection1": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".card-wrapper:hover .media.media--hover-effect > img + img {transform: none !important;}",
+        ".title {font-family: \"DM Serif Display\", Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400;}"
+      ],
+      "settings": {
+        "title": "Best <em>Sellers</em>",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "bestseller",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "bulk",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 12
+      }
+    },
+    "collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "organic"
+          }
+        },
+        "featured_collection2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "vegan-and-vegeterian"
+          }
+        },
+        "featured_collection3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "immune-support"
+          }
+        },
+        "featured_collection5": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gut-health"
+          }
+        },
+        "featured_collection_XEcNgF": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "weight-management"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection1",
+        "featured_collection2",
+        "featured_collection3",
+        "featured_collection5",
+        "featured_collection_XEcNgF"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "<strong>Shop by </strong><em><strong>Category</strong></em>",
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 80,
+        "padding_bottom": 28
+      }
+    },
+    "stack_smarter_new": {
+      "type": "stack-smarter",
+      "settings": {
+        "heading": "Stack Smarter, <em>Feel Better.</em>",
+        "description": "Our synergy blends are crafted to work together — so you can build the optimal stack for gut health, energy, immunity, and beyond.",
+        "checklist": "Clinically researched ingredients|UK-made in GMP-certified facilities|100% natural, no artificial fillers|Designed for synergy — better together",
+        "button_label": "BUILD YOUR STACK",
+        "button_link": "shopify://collections/all",
+        "accent_color": "#2d7a3a",
+        "accent_hover": "#236830"
+      }
+    },
+    "complete_routine_new": {
+      "type": "complete-routine",
+      "blocks": {
+        "item_1": {
+          "type": "checklist_item",
+          "settings": {
+            "label": "Foundation Support",
+            "is_checked": true
+          }
+        },
+        "item_2": {
+          "type": "checklist_item",
+          "settings": {
+            "label": "Digestive Enzyme",
+            "is_checked": false
+          }
+        },
+        "item_3": {
+          "type": "checklist_item",
+          "settings": {
+            "label": "Probiotic Power",
+            "is_checked": false
+          }
+        },
+        "item_4": {
+          "type": "checklist_item",
+          "settings": {
+            "label": "Daily Multivitamin",
+            "is_checked": false
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+      "settings": {
+        "heading": "Complete Your <em>Routine</em>",
+        "subtitle": "Our synergy blends are crafted to work together — so you can build your optimal daily stack.",
+        "form_title": "Customize Your Routine",
+        "background_color": "#f8f8f6",
+        "heading_color": "#1a1a1a",
+        "text_color": "#555555",
+        "accent_color": "#2d7a3a"
+      }
+    },
+    "testimonial_PBzNcc": {
+      "type": "testimonial",
+      "blocks": {
+        "testimonial_Tby7L8": {
+          "type": "testimonial",
+          "settings": {
+            "youtube_video": "",
+            "star_rating": 5,
+            "title": "<p>I’ve tried countless supplements, but nothing compares to WellScience. The quality is unmatched, and I feel more energized than ever. </p><p>— Sarah M</p>",
+            "link_label": "",
+            "link": "",
+            "customer_initial": "S",
+            "initial_color": "#3498db"
+          }
+        },
+        "testimonial_nRfQf4": {
+          "type": "testimonial",
+          "settings": {
+            "youtube_video": "",
+            "star_rating": 5,
+            "title": "<p>From the packaging to the results, everything screams premium. My digestion and overall health have improved significantly.<br/><br/>— James</p>",
+            "link_label": "",
+            "link": "",
+            "customer_initial": "N",
+            "initial_color": "#2d7a3a"
+          }
+        },
+        "testimonial_BNhM98": {
+          "type": "testimonial",
+          "settings": {
+            "youtube_video": "",
+            "star_rating": 5,
+            "title": "<p>I was skeptical at first, but after just a few weeks, I feel the difference. WellScience is now a staple in my daily routine.</p><p>— Olivia</p>",
+            "link_label": "",
+            "link": "",
+            "customer_initial": "J",
+            "initial_color": "#2c3e50"
+          }
+        },
+        "testimonial_NWTFBy": {
+          "type": "testimonial",
+          "settings": {
+            "youtube_video": "",
+            "star_rating": 5,
+            "title": "<p>As a fitness enthusiast, I’ve tried many supplements, but WellScience stands out. The purity and effectiveness are on another level.<br/><br/>— Sandeep</p>",
+            "link_label": "",
+            "link": "",
+            "customer_initial": "P",
+            "initial_color": "#8e44ad"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_Tby7L8",
+        "testimonial_nRfQf4",
+        "testimonial_BNhM98",
+        "testimonial_NWTFBy"
+      ],
+      "custom_css": [
+        ".wbs__heading {font-family: \"DM Serif Display\", Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400;}"
+      ],
+      "settings": {
+        "title": "What Our Customers Say",
+        "subtitle": "Our Health supplements are reviewed and recommended by thousands of satisfied customers.",
+        "per_row": 4,
+        "video_style": "control_bar",
+        "desktop_display": "grid",
+        "mobile_display": "grid",
+        "text_size": 100,
+        "heading_color": "#2d7a3a",
+        "text_color": "#333333",
+        "star_color": "#f59e0b",
+        "play_button_color": "#ffffff",
+        "border_color": "#121212",
+        "border_width": 1,
+        "border_radius": 0,
+        "base_width": 95,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0
+      }
+    },
     "content_image_slider_gTTKcH": {
       "type": "content-image-slider",
       "blocks": {
@@ -41,10 +395,10 @@
         "slide_HXYWPX",
         "slide_VWRer3"
       ],
+      "disabled": true,
       "custom_css": [
         ".carousel-content {object-fit: contain;}"
       ],
-      "disabled": true,
       "settings": {
         "autoplay_speed": 7
       }
@@ -364,38 +718,6 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection1": {
-      "type": "featured-collection",
-      "custom_css": [
-        ".card-wrapper:hover .media.media--hover-effect > img + img {transform: none !important;}",
-        ".title { font-family: 'DM Serif Display', Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400; }"
-      ],
-      "settings": {
-        "title": "<em>Best Sellers</em>",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "bestseller",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": true,
-        "show_view_all": true,
-        "view_all_style": "outline",
-        "enable_desktop_slider": true,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "quick_add": "bulk",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "padding_top": 16,
-        "padding_bottom": 12
-      }
-    },
     "featured_collection2": {
       "type": "featured-collection",
       "disabled": true,
@@ -487,70 +809,6 @@
         "button_color": "#ffffff",
         "button_text_color": "#000000",
         "enable_button": true
-      }
-    },
-    "collection_list": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "organic"
-          }
-        },
-        "featured_collection2": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "vegan-and-vegeterian"
-          }
-        },
-        "featured_collection3": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "immune-support"
-          }
-        },
-        "featured_collection4": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "protein-shake"
-          }
-        },
-        "featured_collection5": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "gut-health"
-          }
-        },
-        "featured_collection_XEcNgF": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "weight-management"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection1",
-        "featured_collection2",
-        "featured_collection3",
-        "featured_collection4",
-        "featured_collection5",
-        "featured_collection_XEcNgF"
-      ],
-      "custom_css": [
-        ".collection-list-title { font-family: 'DM Serif Display', Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400; text-decoration: underline; text-underline-offset: 6px; }"
-      ],
-      "settings": {
-        "title": "<em>Shop by Category</em>",
-        "heading_size": "h2",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "color_scheme": "scheme-4",
-        "show_view_all": true,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 48,
-        "padding_bottom": 12
       }
     },
     "video_slider_jjPmFQ": {
@@ -696,88 +954,6 @@
         "include_margins": true
       }
     },
-    "testimonial_PBzNcc": {
-      "type": "testimonial",
-      "custom_css": [
-        ".wbs__heading { font-family: 'DM Serif Display', Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400; }"
-      ],
-      "blocks": {
-        "testimonial_Tby7L8": {
-          "type": "testimonial",
-          "settings": {
-            "youtube_video": "",
-            "star_rating": 5,
-            "title": "<p>I’ve tried countless supplements, but nothing compares to WellScience. The quality is unmatched, and I feel more energized than ever. </p><p>— Sarah M</p>",
-            "link_label": "",
-            "link": "",
-            "customer_initial": "S",
-            "initial_color": "#3498db"
-          }
-        },
-        "testimonial_nRfQf4": {
-          "type": "testimonial",
-          "settings": {
-            "youtube_video": "",
-            "star_rating": 5,
-            "title": "<p>From the packaging to the results, everything screams premium. My digestion and overall health have improved significantly.<br/><br/>— James</p>",
-            "link_label": "",
-            "link": "",
-            "customer_initial": "N",
-            "initial_color": "#2d7a3a"
-          }
-        },
-        "testimonial_BNhM98": {
-          "type": "testimonial",
-          "settings": {
-            "youtube_video": "",
-            "star_rating": 5,
-            "title": "<p>I was skeptical at first, but after just a few weeks, I feel the difference. WellScience is now a staple in my daily routine.</p><p>— Olivia</p>",
-            "link_label": "",
-            "link": "",
-            "customer_initial": "J",
-            "initial_color": "#2c3e50"
-          }
-        },
-        "testimonial_NWTFBy": {
-          "type": "testimonial",
-          "settings": {
-            "youtube_video": "",
-            "star_rating": 5,
-            "title": "<p>As a fitness enthusiast, I’ve tried many supplements, but WellScience stands out. The purity and effectiveness are on another level.<br/><br/>— Sandeep</p>",
-            "link_label": "",
-            "link": "",
-            "customer_initial": "P",
-            "initial_color": "#8e44ad"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_Tby7L8",
-        "testimonial_nRfQf4",
-        "testimonial_BNhM98",
-        "testimonial_NWTFBy"
-      ],
-      "settings": {
-        "title": "What Our Customers Say",
-        "subtitle": "Our Health supplements are reviewed and recommended by thousands of satisfied customers.",
-        "per_row": 4,
-        "video_style": "control_bar",
-        "desktop_display": "grid",
-        "mobile_display": "grid",
-        "text_size": 100,
-        "heading_color": "#2d7a3a",
-        "text_color": "#333333",
-        "star_color": "#f59e0b",
-        "play_button_color": "#ffffff",
-        "border_color": "#121212",
-        "border_width": 1,
-        "border_radius": 0,
-        "base_width": 95,
-        "max_width": "",
-        "inner_padding": 40,
-        "outer_margin": 0
-      }
-    },
     "parallax_9KUwFq": {
       "type": "parallax",
       "blocks": {
@@ -812,135 +988,12 @@
         "color_over": "#000000",
         "par_opacity": 50
       }
-    },
-    "hero_banner_nature_new": {
-      "type": "hero-banner-nature",
-      "settings": {
-        "heading": "Restore Your Gut Balance.",
-        "heading_color": "#ffffff",
-        "button_label_1": "SAFE SUPPLEMENTS",
-        "button_link_1": "shopify://collections/all",
-        "button_primary_bg": "#2d7a3a",
-        "button_primary_text": "#ffffff",
-        "button_label_2": "GET 20% OFF",
-        "button_link_2": "",
-        "badge_1_value": "4.9+",
-        "badge_1_label": "Rating",
-        "badge_2_value": "12K+",
-        "badge_2_label": "Happy Customers",
-        "badge_3_value": "100%",
-        "badge_3_label": "Natural"
-      }
-    },
-    "icon_trust_bar_new": {
-      "type": "icon-trust-bar",
-      "blocks": {
-        "icon_1": {
-          "type": "icon_item",
-          "settings": {
-            "icon_type": "leaf",
-            "label": "Great Nutrition"
-          }
-        },
-        "icon_2": {
-          "type": "icon_item",
-          "settings": {
-            "icon_type": "shield",
-            "label": "GMP Certified"
-          }
-        },
-        "icon_3": {
-          "type": "icon_item",
-          "settings": {
-            "icon_type": "science",
-            "label": "Scientifically Backed"
-          }
-        },
-        "icon_4": {
-          "type": "icon_item",
-          "settings": {
-            "icon_type": "globe",
-            "label": "Fair Sourced"
-          }
-        }
-      },
-      "block_order": [
-        "icon_1",
-        "icon_2",
-        "icon_3",
-        "icon_4"
-      ],
-      "settings": {
-        "background_color": "#ffffff",
-        "icon_bg_color": "#ffffff",
-        "icon_color": "#2d7a3a",
-        "text_color": "#333333"
-      }
-    },
-    "stack_smarter_new": {
-      "type": "stack-smarter",
-      "settings": {
-        "heading": "Stack Smarter, <em>Feel Better.</em>",
-        "description": "Our synergy blends are crafted to work together — so you can build the optimal stack for gut health, energy, immunity, and beyond.",
-        "checklist": "Clinically researched ingredients|UK-made in GMP-certified facilities|100% natural, no artificial fillers|Designed for synergy — better together",
-        "button_label": "BUILD YOUR STACK",
-        "button_link": "shopify://collections/all",
-        "accent_color": "#2d7a3a",
-        "accent_hover": "#236830"
-      }
-    },
-    "complete_routine_new": {
-      "type": "complete-routine",
-      "blocks": {
-        "item_1": {
-          "type": "checklist_item",
-          "settings": {
-            "label": "Foundation Support",
-            "is_checked": true
-          }
-        },
-        "item_2": {
-          "type": "checklist_item",
-          "settings": {
-            "label": "Digestive Enzyme",
-            "is_checked": false
-          }
-        },
-        "item_3": {
-          "type": "checklist_item",
-          "settings": {
-            "label": "Probiotic Power",
-            "is_checked": false
-          }
-        },
-        "item_4": {
-          "type": "checklist_item",
-          "settings": {
-            "label": "Daily Multivitamin",
-            "is_checked": false
-          }
-        }
-      },
-      "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4"
-      ],
-      "settings": {
-        "heading": "Complete Your <em>Routine</em>",
-        "subtitle": "Our synergy blends are crafted to work together — so you can build your optimal daily stack.",
-        "form_title": "Customize Your Routine",
-        "background_color": "#f8f8f6",
-        "heading_color": "#1a1a1a",
-        "text_color": "#555555",
-        "accent_color": "#2d7a3a"
-      }
     }
   },
   "order": [
     "hero_banner_nature_new",
     "icon_trust_bar_new",
+    "marquee_z4pmdh",
     "featured_collection1",
     "collection_list",
     "stack_smarter_new",

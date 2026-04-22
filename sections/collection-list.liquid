@@ -14,6 +14,71 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Card container */
+  .custom-category-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  /* Image */
+  .custom-category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Overlay */
+  .card-bg {
+    inset: 0;
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 2.75) 0%,   /* strong dark bottom */
+      rgba(0, 0, 0, 84.45) 40%,  /* mid fade */
+      rgba(0, 0, 0, 25.15) 70%,  /* light */
+      rgba(0, 0, 0, 15.05) 100%  /* almost transparent top */
+    )
+  }
+
+  /* Content */
+  .card-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+  }
+
+  .card-content h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .card-content .explore {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  /* Hover effect */
+  .custom-category-card:hover img {
+    transform: scale(1.05);
+    transition: 0.4s;
+  }
+
+  .collection-subtitle {
+    text-align: center;
+    color: #6b7280;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .title-wrapper-with-link{
+    display: flex;
+    justify-content: center;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -28,12 +93,27 @@
   <div class="collection-list-wrapper page-width isolate{% if show_mobile_slider %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
     {%- unless section.settings.title == blank -%}
       <div class="title-wrapper-with-link{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
+        {% assign words = section.settings.title | split: ' ' %}
         <h2
           id="SectionHeading-{{ section.id }}"
-          class="collection-list-title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="title {{ section.settings.heading_size }}"
         >
-          {{ section.settings.title }}
+          {% for word in words %}
+            {% if forloop.last %}
+              <em class="blue">{{ word }}</em>
+            {% else %}
+              <span class="green">{{ word }}</span>
+            {% endif %}
+          {% endfor %}
         </h2>
+
+        <div class="collection__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {%- if section.settings.show_description -%}
+            {{ section.settings.collection.description }}
+          {%- else -%}
+            {{ section.settings.subtitle }}
+          {%- endif %}
+        </div>
 
         {%- if section.settings.show_view_all and show_mobile_slider -%}
           <a
@@ -72,12 +152,27 @@
           >
             {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
             {%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
-            {% render 'card-collection',
-              card_collection: block.settings.collection,
-              media_aspect_ratio: section.settings.image_ratio,
-              columns: columns,
-              placeholder_image: placeholder_image
-            %}
+            <div class="custom-category-card">
+
+              <a href="{{ block.settings.collection.url }}">
+
+                <div class="card-bg">
+                  <img 
+                    src="{{ block.settings.collection.featured_image | image_url: width: 800 }}" 
+                    alt="{{ block.settings.collection.title }}"
+                  >
+                </div>
+
+                <div class="card-overlay"></div>
+
+                <div class="card-content">
+                  <h3>{{ block.settings.collection.title }}</h3>
+                  <span class="explore">Explore →</span>
+                </div>
+
+              </a>
+
+            </div>
           </li>
         {%- endfor -%}
       </ul>
@@ -148,6 +243,12 @@
       "id": "title",
       "default": "t:sections.collection-list.settings.title.default",
       "label": "t:sections.collection-list.settings.title.label"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Each formula crafted for a specific wellness need — find yours."
     },
     {
       "type": "select",

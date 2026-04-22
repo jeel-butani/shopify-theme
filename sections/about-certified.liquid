@@ -1,0 +1,157 @@
+{{ 'section-about-certified.css' | asset_url | stylesheet_tag }}
+
+<div class="about-certified">
+  <div class="page-width">
+    <div class="certified-header">
+      <h2 class="certified-title">{{ section.settings.section_title | split: '&' | first }}&<span class="highlight-color">{{ section.settings.section_title | split: '&' | last }}</span></h2>
+      <p class="certified-subtitle">{{ section.settings.section_subtitle }}</p>
+    </div>
+
+    <div class="certifications">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'certification' -%}
+          <div class="certification-badge">
+            {%- if block.settings.certification_image != blank -%}
+              {{ block.settings.certification_image | image_url: width: 100 | image_tag: width: 100, height: 100, class: 'badge-image', alt: block.settings.certification_name }}
+            {%- else -%}
+              <div class="badge-placeholder">{{ block.settings.certification_name | slice: 0, 2 }}</div>
+            {%- endif -%}
+            <p class="badge-name">{{ block.settings.certification_name }}</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="certified-stats">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'stat' -%}
+          <div class="stat-box">
+            <div class="stat-number">{{ block.settings.stat_number }}</div>
+            <div class="stat-label">{{ block.settings.stat_label }}</div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Certified & Trusted",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Certified & Trusted"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Every detail about our products is tested, certified and verified for your peace of mind."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "certification",
+      "name": "Certification Badge",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "certification_image",
+          "label": "Certification Image"
+        },
+        {
+          "type": "text",
+          "id": "certification_name",
+          "label": "Certification Name",
+          "default": "GMP Certified"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Statistics",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stat_number",
+          "label": "Number",
+          "default": "50k+"
+        },
+        {
+          "type": "text",
+          "id": "stat_label",
+          "label": "Label",
+          "default": "HAPPY CUSTOMERS"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About - Certified & Trusted",
+      "blocks": [
+        {
+          "type": "certification",
+          "settings": {
+            "certification_name": "GMP Certified"
+          }
+        },
+        {
+          "type": "certification",
+          "settings": {
+            "certification_name": "Organic Approved"
+          }
+        },
+        {
+          "type": "certification",
+          "settings": {
+            "certification_name": "Lab Tested"
+          }
+        },
+        {
+          "type": "certification",
+          "settings": {
+            "certification_name": "B Corp"
+          }
+        },
+        {
+          "type": "certification",
+          "settings": {
+            "certification_name": "Quality First"
+          }
+        },
+        {
+          "type": "certification",
+          "settings": {
+            "certification_name": "Eco-Friendly"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "stat_number": "50k+",
+            "stat_label": "HAPPY CUSTOMERS"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "stat_number": "24+",
+            "stat_label": "SCIENCE BACKED FORMULAS"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "stat_number": "100%",
+            "stat_label": "UK GMP MANUFACTURED"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

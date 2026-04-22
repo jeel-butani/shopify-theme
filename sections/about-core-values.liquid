@@ -1,0 +1,118 @@
+{{ 'section-about-core-values.css' | asset_url | stylesheet_tag }}
+
+<div class="about-core-values">
+  <div class="page-width">
+    <div class="values-header">
+      <h2 class="values-title">{{ section.settings.section_title | split: ' ' | slice: 0, -1 | join: ' ' }}<span class="highlight-color">{{ section.settings.section_title | split: ' ' | last }}</span></h2>
+      <p class="values-subtitle">{{ section.settings.section_subtitle }}</p>
+    </div>
+
+    <div class="values-grid">
+      {%- for block in section.blocks -%}
+        <div class="value-card">
+          {%- if block.settings.icon != blank -%}
+            <div class="value-icon">
+              {{ block.settings.icon | image_url: width: 60 | image_tag: width: 60, height: 60, class: 'icon-img' }}
+            </div>
+          {%- endif -%}
+          <h3 class="value-title">{{ block.settings.title }}</h3>
+          <p class="value-description">{{ block.settings.description }}</p>
+          {%- if block.settings.highlights != blank -%}
+            <ul class="value-highlights">
+              {%- assign highlights = block.settings.highlights | split: ',' -%}
+              {%- for highlight in highlights -%}
+                <li>{{ highlight | strip }}</li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Core Values",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Our Core Values"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "The principles that guide every decision we make — from formulation to packaging."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value_card",
+      "name": "Value Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Science First"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Every decision is grounded in rigorous scientific evidence and peer-reviewed research."
+        },
+        {
+          "type": "textarea",
+          "id": "highlights",
+          "label": "Highlights (comma-separated)",
+          "default": "Evidence-based, Peer-reviewed, Continuously updated"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About - Core Values",
+      "blocks": [
+        {
+          "type": "value_card",
+          "settings": {
+            "title": "Science First",
+            "description": "Every decision is grounded in rigorous scientific evidence and peer-reviewed research."
+          }
+        },
+        {
+          "type": "value_card",
+          "settings": {
+            "title": "Botanical Purity",
+            "description": "We source the highest quality botanical ingredients from certified sustainable suppliers."
+          }
+        },
+        {
+          "type": "value_card",
+          "settings": {
+            "title": "Sustainability",
+            "description": "Environmental responsibility is embedded in everything we do, from sourcing to packaging."
+          }
+        },
+        {
+          "type": "value_card",
+          "settings": {
+            "title": "Radical Transparency",
+            "description": "Full ingredient disclosure and honest communication about what our products can and cannot do."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
