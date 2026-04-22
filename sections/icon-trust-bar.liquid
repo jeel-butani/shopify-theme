@@ -1,0 +1,228 @@
+{%- style -%}
+  #icon-trust-{{ section.id }} {
+    background: {{ section.settings.background_color }};
+    padding: 36px 0 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #icon-trust-{{ section.id }} .trust-bar__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  #icon-trust-{{ section.id }} .trust-bar__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  /* Connecting line between icons */
+  #icon-trust-{{ section.id }} .trust-bar__items::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    right: 60px;
+    height: 2px;
+    background: #d4d4d4;
+    z-index: 0;
+  }
+
+  #icon-trust-{{ section.id }} .trust-bar__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+    flex: 0 0 auto;
+    width: 140px;
+  }
+
+  #icon-trust-{{ section.id }} .trust-bar__icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: {{ section.settings.icon_bg_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid #e8e8e8;
+    overflow: hidden;
+  }
+
+  #icon-trust-{{ section.id }} .trust-bar__icon-circle img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  #icon-trust-{{ section.id }} .trust-bar__icon-circle svg {
+    width: 28px;
+    height: 28px;
+    fill: {{ section.settings.icon_color }};
+  }
+
+  #icon-trust-{{ section.id }} .trust-bar__label {
+    font-size: 12px;
+    font-weight: 600;
+    color: {{ section.settings.text_color }};
+    text-align: center;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 768px) {
+    #icon-trust-{{ section.id }} .trust-bar__items::before {
+      left: 30px;
+      right: 30px;
+      top: 24px;
+    }
+
+    #icon-trust-{{ section.id }} .trust-bar__item {
+      width: auto;
+      min-width: 70px;
+    }
+
+    #icon-trust-{{ section.id }} .trust-bar__icon-circle {
+      width: 48px;
+      height: 48px;
+    }
+
+    #icon-trust-{{ section.id }} .trust-bar__icon-circle img {
+      width: 24px;
+      height: 24px;
+    }
+
+    #icon-trust-{{ section.id }} .trust-bar__label {
+      font-size: 10px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="icon-trust-{{ section.id }}">
+  <div class="trust-bar__inner">
+    <div class="trust-bar__items">
+      {%- for block in section.blocks -%}
+        <div class="trust-bar__item" {{ block.shopify_attributes }}>
+          <div class="trust-bar__icon-circle">
+            {%- if block.settings.icon_image != blank -%}
+              {{ block.settings.icon_image | image_url: width: 80 | image_tag }}
+            {%- else -%}
+              {%- case block.settings.icon_type -%}
+                {%- when 'leaf' -%}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+                {%- when 'shield' -%}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                {%- when 'science' -%}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2v2h-2V2h2zm4 5H7l-2 7h4l-1 8 10-12h-5l4-3zm-5 7.59L16.59 9H13V4h-2v5H7.41l-1.14 4h3.23L8.35 19.8 12 14.59z"/></svg>
+                {%- when 'globe' -%}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                {%- else -%}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                {%- endcase -%}
+            {%- endif -%}
+          </div>
+          {%- if block.settings.label != blank -%}
+            <span class="trust-bar__label">{{ block.settings.label }}</span>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Icon Trust Bar",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Icon circle background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#2d7a3a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#333333"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon_item",
+      "name": "Trust Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Custom icon image"
+        },
+        {
+          "type": "select",
+          "id": "icon_type",
+          "label": "Default icon (if no image)",
+          "options": [
+            { "value": "leaf", "label": "Leaf / Natural" },
+            { "value": "shield", "label": "Shield / GMP" },
+            { "value": "science", "label": "Science / Lab" },
+            { "value": "globe", "label": "Globe / Sourced" }
+          ],
+          "default": "leaf"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label text",
+          "default": "Great Nutrition"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon Trust Bar",
+      "blocks": [
+        {
+          "type": "icon_item",
+          "settings": { "icon_type": "leaf", "label": "Great Nutrition" }
+        },
+        {
+          "type": "icon_item",
+          "settings": { "icon_type": "shield", "label": "GMP Certified" }
+        },
+        {
+          "type": "icon_item",
+          "settings": { "icon_type": "science", "label": "Scientifically Backed" }
+        },
+        {
+          "type": "icon_item",
+          "settings": { "icon_type": "globe", "label": "Fair Sourced" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

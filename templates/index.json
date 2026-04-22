@@ -1,0 +1,963 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content_image_slider_gTTKcH": {
+      "type": "content-image-slider",
+      "blocks": {
+        "slide_HXYWPX": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/CollagenIQ_2_1_-1.jpg",
+            "title": "",
+            "subtitle": "",
+            "title_color": "#ffffff",
+            "subtitle_color": "#ffffff",
+            "button_label": "Buy Now",
+            "button_link": "shopify://products/collageniq-marine-peptine-formula-for-glow-vitality"
+          }
+        },
+        "slide_VWRer3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_2_-1.jpg",
+            "title": "",
+            "subtitle": "",
+            "title_color": "#ffffff",
+            "subtitle_color": "#ffffff",
+            "button_label": "Buy Now",
+            "button_link": "shopify://products/berryvital-boost"
+          }
+        }
+      },
+      "block_order": [
+        "slide_HXYWPX",
+        "slide_VWRer3"
+      ],
+      "custom_css": [
+        ".carousel-content {object-fit: contain;}"
+      ],
+      "disabled": true,
+      "settings": {
+        "autoplay_speed": 7
+      }
+    },
+    "slideshow_RhjGKx": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_cLB9Di": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/VitalaC-Image3a.jpg",
+            "heading": "Luxury Wellness, Backed by Science",
+            "heading_size": "h2",
+            "subheading": "Clinically formulated, premium-grade supplements for those who demand the best in health, longevity, and vitality.",
+            "button_label": "Shop Now",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "bottom-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-3",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_4gDWYR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/GoldenHealBlend-Image1a.jpg",
+            "heading": "Luxury Wellness, Backed by Science",
+            "heading_size": "h2",
+            "subheading": "Clinically formulated, premium-grade supplements for those who demand the best in health, longevity, and vitality.",
+            "button_label": "Shop Now",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "bottom-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_C8YeUV": {
+          "type": "slide",
+          "settings": {
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_JGwgnE": {
+          "type": "slide",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_cLB9Di",
+        "slide_4gDWYR",
+        "slide_C8YeUV",
+        "slide_JGwgnE"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "image_banner": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/WellScience_banner_1400_x_550_px_1.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-5",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "scrolling_images_atfpXh": {
+      "type": "scrolling-images",
+      "blocks": {
+        "image_amkiQ4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/AppleCiderVinegar-Image1a.jpg",
+            "url": "shopify://products/apple-cider-vinegar"
+          }
+        },
+        "image_nwG7q4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/AshwagandhaVitalityBlent-Image2a.jpg",
+            "url": "shopify://products/ashwagandha-vitality-blend"
+          }
+        },
+        "image_KcFDxH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BowelReviveHerbalCleanse-Image1a.jpg",
+            "url": "shopify://products/bowelrevive-herbal-cleanse"
+          }
+        },
+        "image_4ixTjn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DigestiDetoxBalance-Image1a.jpg",
+            "url": "shopify://products/digestidetox-balance"
+          }
+        },
+        "image_UjhUzr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DigestiveEnzymeSupport-Image1a.jpg",
+            "url": "shopify://products/digestive-enzyme-support"
+          }
+        }
+      },
+      "block_order": [
+        "image_amkiQ4",
+        "image_nwG7q4",
+        "image_KcFDxH",
+        "image_4ixTjn",
+        "image_UjhUzr"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "<p>The Future of Wellness</p>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 40,
+        "heading_height": 130,
+        "heading_align": "center",
+        "slider_speed": 25,
+        "slider_gap": 10,
+        "slider_gap_mobile": 10,
+        "slider_mt": 50,
+        "slider_direction": "left",
+        "pause_hover": false,
+        "image_width_desktop": 300,
+        "image_width_mobile": 120,
+        "image_height_desktop": 400,
+        "image_height_mobile": 200,
+        "image_radius": 10,
+        "use_content": true,
+        "content_position": "center",
+        "content_max_width": 340,
+        "content_max_width_mobile": 340,
+        "content_padding_vertical": 30,
+        "content_padding_horizontal": 30,
+        "content_distance": 60,
+        "content_radius": 10,
+        "content_border_thickness": 0,
+        "use_shadow": true,
+        "text": "<p>Trusted by 5,000+ and Growing Every Day</p>",
+        "text_custom": false,
+        "text_font": "assistant_n4",
+        "text_size": 24,
+        "text_height": 130,
+        "heading_color": "#000000",
+        "content_bg": "#ffffff",
+        "content_border_color": "#000000",
+        "text_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "marquee_hr7WKM": {
+      "type": "marquee",
+      "blocks": {
+        "text_NtQpXa": {
+          "type": "text",
+          "settings": {
+            "new_text": "Proudly British"
+          }
+        },
+        "text_XXcrEF": {
+          "type": "text",
+          "settings": {
+            "new_text": "Perfectly Balanced"
+          }
+        },
+        "text_pLNt9w": {
+          "type": "text",
+          "settings": {
+            "new_text": "100% UK-Made Supplements"
+          }
+        }
+      },
+      "block_order": [
+        "text_NtQpXa",
+        "text_XXcrEF",
+        "text_pLNt9w"
+      ],
+      "disabled": true,
+      "settings": {
+        "colorBackground": "#17c272",
+        "colorText": "#ffffff",
+        "link": "",
+        "marquee_height": 40,
+        "font_size": 18
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Proudly British, Perfectly Balanced – 100% UK-Made Supplements.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-92b8d805-568b-4350-872b-f97f8d721e43",
+        "full_width": true,
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    },
+    "image_with_text_aV67BM": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_GH8QUK": {
+          "type": "heading",
+          "settings": {
+            "heading": "The WellScience Journey",
+            "heading_size": "h2"
+          }
+        },
+        "text_WGEdCx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you ask me how WellScience was born, I won’t talk about business plans, investments, or strategies. Instead, I’ll tell you it was born out of love—out of sleepless nights, countless sacrifices, and an unwavering belief in something greater than myself. </p>",
+            "text_style": "body"
+          }
+        },
+        "button_xwni3Y": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read More",
+            "button_link": "shopify://pages/the-story-behind-wellscience",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_GH8QUK",
+        "text_WGEdCx",
+        "button_xwni3Y"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/WhatsApp_Image_2025-04-02_at_14.55.38.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "zoom-in",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection1": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".card-wrapper:hover .media.media--hover-effect > img + img {transform: none !important;}",
+        ".title { font-family: 'DM Serif Display', Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400; }"
+      ],
+      "settings": {
+        "title": "<em>Best Sellers</em>",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "bestseller",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "bulk",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 12
+      }
+    },
+    "featured_collection2": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Our Bundles",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "bundles",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "bulk",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 16
+      }
+    },
+    "featured_cart_slider_HXmNd4": {
+      "type": "featured-cart-slider",
+      "blocks": {
+        "slide_zpYWYy": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/pexels-monicore-1391505.jpg",
+            "slide_heading": "Organic",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/organic"
+          }
+        },
+        "slide_767N4e": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/pexels-ella-olsson-572949-1640770.jpg",
+            "slide_heading": "Vegan and Vegeterian",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/vegan-and-vegeterian"
+          }
+        },
+        "slide_pM8Rac": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/healthy-lifestyle-running-outdoors.jpg",
+            "slide_heading": "Immune Support",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/immune-support"
+          }
+        },
+        "slide_dPQc9U": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/world-health-day-celebration-with-healthy-food.jpg",
+            "slide_heading": "Gut health",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/gut-health"
+          }
+        },
+        "slide_rBe9ED": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/WhatsApp_Image_2025-04-02_at_16.21.29.jpg",
+            "slide_heading": "Weight Management",
+            "button_text": "Shop Now",
+            "button_link": "shopify://collections/weight-management"
+          }
+        }
+      },
+      "block_order": [
+        "slide_zpYWYy",
+        "slide_767N4e",
+        "slide_pM8Rac",
+        "slide_dPQc9U",
+        "slide_rBe9ED"
+      ],
+      "disabled": true,
+      "settings": {
+        "background_color": "#f4f4f4",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "enable_button": true
+      }
+    },
+    "collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "organic"
+          }
+        },
+        "featured_collection2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "vegan-and-vegeterian"
+          }
+        },
+        "featured_collection3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "immune-support"
+          }
+        },
+        "featured_collection4": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "protein-shake"
+          }
+        },
+        "featured_collection5": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gut-health"
+          }
+        },
+        "featured_collection_XEcNgF": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "weight-management"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection1",
+        "featured_collection2",
+        "featured_collection3",
+        "featured_collection4",
+        "featured_collection5",
+        "featured_collection_XEcNgF"
+      ],
+      "custom_css": [
+        ".collection-list-title { font-family: 'DM Serif Display', Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400; text-decoration: underline; text-underline-offset: 6px; }"
+      ],
+      "settings": {
+        "title": "<em>Shop by Category</em>",
+        "heading_size": "h2",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-4",
+        "show_view_all": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 48,
+        "padding_bottom": 12
+      }
+    },
+    "video_slider_jjPmFQ": {
+      "type": "video-slider",
+      "blocks": {
+        "video_3hw8gn": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/VID_5.mp4",
+            "product": "",
+            "collection": ""
+          }
+        },
+        "video_MeCLUp": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "html5_video": "shopify://files/videos/WhatsApp Video 2025-04-01 at 23.43.04.mp4",
+            "product": "",
+            "collection": ""
+          }
+        },
+        "video_zDYTPh": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/VID_6.mp4",
+            "product": "",
+            "collection": ""
+          }
+        },
+        "video_7cTgdN": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/WhatsApp Video 2025-03-06 at 23.02.32_5a1616db.mp4",
+            "product": "",
+            "collection": ""
+          }
+        },
+        "video_Kijhg8": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/VID-20250402-WA0019.mp4",
+            "product": "",
+            "collection": ""
+          }
+        },
+        "video_PcMWKt": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/VID-20250402-WA0018(1).mp4",
+            "product": "",
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_3hw8gn",
+        "video_MeCLUp",
+        "video_zDYTPh",
+        "video_7cTgdN",
+        "video_Kijhg8",
+        "video_PcMWKt"
+      ],
+      "disabled": true,
+      "settings": {
+        "slide_width": 300,
+        "image_crop": "none",
+        "aspect_ratio": "9:16",
+        "autoplay": 8,
+        "gap": 10,
+        "show_arrows": false,
+        "text_size": 100,
+        "text_alignment": "left",
+        "text_color": "#121212",
+        "border_color": "#121212",
+        "background_color": "",
+        "border_radius": 10,
+        "base_width": 100,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "anchor_id": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "system_ui_n4"
+      }
+    },
+    "marquee_MHhfyz": {
+      "type": "marquee",
+      "blocks": {
+        "text_h3wKTQ": {
+          "type": "text",
+          "settings": {
+            "new_text": "Bringing happiness to homes"
+          }
+        },
+        "text_F9BVWN": {
+          "type": "text",
+          "settings": {
+            "new_text": "Quality that makes a difference"
+          }
+        },
+        "text_ARnAdE": {
+          "type": "text",
+          "settings": {
+            "new_text": "A brand built on trust"
+          }
+        }
+      },
+      "block_order": [
+        "text_h3wKTQ",
+        "text_F9BVWN",
+        "text_ARnAdE"
+      ],
+      "disabled": true,
+      "settings": {
+        "colorBackground": "#17c272",
+        "colorText": "#f4f4f4",
+        "link": "",
+        "marquee_height": 46,
+        "font_size": 20
+      }
+    },
+    "17413256558f7e8bec": {
+      "type": "apps",
+      "blocks": {
+        "efaq_ai_questions_answers_faq_widget_8TVnac": {
+          "type": "shopify://apps/efaq-ai-questions-answers/blocks/faq_widget/6b6223c7-d62f-457a-b9b7-afcedeca590b",
+          "settings": {
+            "heading": "FAQ's",
+            "heading_tag": "h2",
+            "embed_code": "<div id=\"embedfaq-ai\" data-collection-id=\"cm7ycblyq00007b39t5qr28b2\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "efaq_ai_questions_answers_faq_widget_8TVnac"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "testimonial_PBzNcc": {
+      "type": "testimonial",
+      "custom_css": [
+        ".wbs__heading { font-family: 'DM Serif Display', Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400; }"
+      ],
+      "blocks": {
+        "testimonial_Tby7L8": {
+          "type": "testimonial",
+          "settings": {
+            "youtube_video": "",
+            "star_rating": 5,
+            "title": "<p>I’ve tried countless supplements, but nothing compares to WellScience. The quality is unmatched, and I feel more energized than ever. </p><p>— Sarah M</p>",
+            "link_label": "",
+            "link": "",
+            "customer_initial": "S",
+            "initial_color": "#3498db"
+          }
+        },
+        "testimonial_nRfQf4": {
+          "type": "testimonial",
+          "settings": {
+            "youtube_video": "",
+            "star_rating": 5,
+            "title": "<p>From the packaging to the results, everything screams premium. My digestion and overall health have improved significantly.<br/><br/>— James</p>",
+            "link_label": "",
+            "link": "",
+            "customer_initial": "N",
+            "initial_color": "#2d7a3a"
+          }
+        },
+        "testimonial_BNhM98": {
+          "type": "testimonial",
+          "settings": {
+            "youtube_video": "",
+            "star_rating": 5,
+            "title": "<p>I was skeptical at first, but after just a few weeks, I feel the difference. WellScience is now a staple in my daily routine.</p><p>— Olivia</p>",
+            "link_label": "",
+            "link": "",
+            "customer_initial": "J",
+            "initial_color": "#2c3e50"
+          }
+        },
+        "testimonial_NWTFBy": {
+          "type": "testimonial",
+          "settings": {
+            "youtube_video": "",
+            "star_rating": 5,
+            "title": "<p>As a fitness enthusiast, I’ve tried many supplements, but WellScience stands out. The purity and effectiveness are on another level.<br/><br/>— Sandeep</p>",
+            "link_label": "",
+            "link": "",
+            "customer_initial": "P",
+            "initial_color": "#8e44ad"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_Tby7L8",
+        "testimonial_nRfQf4",
+        "testimonial_BNhM98",
+        "testimonial_NWTFBy"
+      ],
+      "settings": {
+        "title": "What Our Customers Say",
+        "subtitle": "Our Health supplements are reviewed and recommended by thousands of satisfied customers.",
+        "per_row": 4,
+        "video_style": "control_bar",
+        "desktop_display": "grid",
+        "mobile_display": "grid",
+        "text_size": 100,
+        "heading_color": "#2d7a3a",
+        "text_color": "#333333",
+        "star_color": "#f59e0b",
+        "play_button_color": "#ffffff",
+        "border_color": "#121212",
+        "border_width": 1,
+        "border_radius": 0,
+        "base_width": 95,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0
+      }
+    },
+    "parallax_9KUwFq": {
+      "type": "parallax",
+      "blocks": {
+        "text_UNQ4RM": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/VitalaC-Image3a.jpg",
+            "txt1-hd1": "Transform Your Health One Capsule at a Time",
+            "parallax-h": "h1",
+            "txt1-hd2": "Premium Supplements Crafted for Maximum Impact Backed by Science Designed for You.",
+            "parallax-subh": "h2",
+            "par1_showbutton": false,
+            "par1_button_label": "Explore More",
+            "par1_button_link": "shopify://pages/about-us"
+          }
+        }
+      },
+      "block_order": [
+        "text_UNQ4RM"
+      ],
+      "disabled": true,
+      "settings": {
+        "paral-full": true,
+        "par_img_sz": "400",
+        "par_hd_sz": "55",
+        "par_subhd_sz": "25",
+        "par_button_sz": "25",
+        "par_letter_sp": "1",
+        "par_txt_align": "left",
+        "par_txt_top_pos": "50",
+        "par-en-over": true,
+        "color_over": "#000000",
+        "par_opacity": 50
+      }
+    },
+    "hero_banner_nature_new": {
+      "type": "hero-banner-nature",
+      "settings": {
+        "heading": "Restore Your Gut Balance.",
+        "heading_color": "#ffffff",
+        "button_label_1": "SAFE SUPPLEMENTS",
+        "button_link_1": "shopify://collections/all",
+        "button_primary_bg": "#2d7a3a",
+        "button_primary_text": "#ffffff",
+        "button_label_2": "GET 20% OFF",
+        "button_link_2": "",
+        "badge_1_value": "4.9+",
+        "badge_1_label": "Rating",
+        "badge_2_value": "12K+",
+        "badge_2_label": "Happy Customers",
+        "badge_3_value": "100%",
+        "badge_3_label": "Natural"
+      }
+    },
+    "icon_trust_bar_new": {
+      "type": "icon-trust-bar",
+      "blocks": {
+        "icon_1": {
+          "type": "icon_item",
+          "settings": {
+            "icon_type": "leaf",
+            "label": "Great Nutrition"
+          }
+        },
+        "icon_2": {
+          "type": "icon_item",
+          "settings": {
+            "icon_type": "shield",
+            "label": "GMP Certified"
+          }
+        },
+        "icon_3": {
+          "type": "icon_item",
+          "settings": {
+            "icon_type": "science",
+            "label": "Scientifically Backed"
+          }
+        },
+        "icon_4": {
+          "type": "icon_item",
+          "settings": {
+            "icon_type": "globe",
+            "label": "Fair Sourced"
+          }
+        }
+      },
+      "block_order": [
+        "icon_1",
+        "icon_2",
+        "icon_3",
+        "icon_4"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "icon_bg_color": "#ffffff",
+        "icon_color": "#2d7a3a",
+        "text_color": "#333333"
+      }
+    },
+    "stack_smarter_new": {
+      "type": "stack-smarter",
+      "settings": {
+        "heading": "Stack Smarter, <em>Feel Better.</em>",
+        "description": "Our synergy blends are crafted to work together — so you can build the optimal stack for gut health, energy, immunity, and beyond.",
+        "checklist": "Clinically researched ingredients|UK-made in GMP-certified facilities|100% natural, no artificial fillers|Designed for synergy — better together",
+        "button_label": "BUILD YOUR STACK",
+        "button_link": "shopify://collections/all",
+        "accent_color": "#2d7a3a",
+        "accent_hover": "#236830"
+      }
+    },
+    "complete_routine_new": {
+      "type": "complete-routine",
+      "blocks": {
+        "item_1": {
+          "type": "checklist_item",
+          "settings": {
+            "label": "Foundation Support",
+            "is_checked": true
+          }
+        },
+        "item_2": {
+          "type": "checklist_item",
+          "settings": {
+            "label": "Digestive Enzyme",
+            "is_checked": false
+          }
+        },
+        "item_3": {
+          "type": "checklist_item",
+          "settings": {
+            "label": "Probiotic Power",
+            "is_checked": false
+          }
+        },
+        "item_4": {
+          "type": "checklist_item",
+          "settings": {
+            "label": "Daily Multivitamin",
+            "is_checked": false
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+      "settings": {
+        "heading": "Complete Your <em>Routine</em>",
+        "subtitle": "Our synergy blends are crafted to work together — so you can build your optimal daily stack.",
+        "form_title": "Customize Your Routine",
+        "background_color": "#f8f8f6",
+        "heading_color": "#1a1a1a",
+        "text_color": "#555555",
+        "accent_color": "#2d7a3a"
+      }
+    }
+  },
+  "order": [
+    "hero_banner_nature_new",
+    "icon_trust_bar_new",
+    "featured_collection1",
+    "collection_list",
+    "stack_smarter_new",
+    "complete_routine_new",
+    "testimonial_PBzNcc",
+    "content_image_slider_gTTKcH",
+    "slideshow_RhjGKx",
+    "image_banner",
+    "scrolling_images_atfpXh",
+    "marquee_hr7WKM",
+    "rich_text",
+    "image_with_text_aV67BM",
+    "featured_collection2",
+    "featured_cart_slider_HXmNd4",
+    "video_slider_jjPmFQ",
+    "marquee_MHhfyz",
+    "17413256558f7e8bec",
+    "parallax_9KUwFq"
+  ]
+}

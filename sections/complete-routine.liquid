@@ -1,0 +1,304 @@
+{%- style -%}
+  #complete-routine-{{ section.id }} {
+    background: {{ section.settings.background_color }};
+    padding: 60px 0;
+  }
+
+  #complete-routine-{{ section.id }} .routine__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+
+  #complete-routine-{{ section.id }} .routine__header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  #complete-routine-{{ section.id }} .routine__heading {
+    font-family: 'DM Serif Display', 'Georgia', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+  }
+
+  #complete-routine-{{ section.id }} .routine__heading em,
+  #complete-routine-{{ section.id }} .routine__heading i {
+    font-style: italic;
+    color: {{ section.settings.accent_color }};
+  }
+
+  #complete-routine-{{ section.id }} .routine__subtitle {
+    font-size: 15px;
+    color: {{ section.settings.text_color }};
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+
+  #complete-routine-{{ section.id }} .routine__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+
+  /* ── Form/checklist card ── */
+  #complete-routine-{{ section.id }} .routine__form-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eee;
+  }
+
+  #complete-routine-{{ section.id }} .routine__form-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 20px 0;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #eee;
+  }
+
+  #complete-routine-{{ section.id }} .routine__form-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  #complete-routine-{{ section.id }} .routine__form-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border: 1px solid #eaeaea;
+    transition: all 0.2s ease;
+  }
+
+  #complete-routine-{{ section.id }} .routine__form-item:hover {
+    border-color: {{ section.settings.accent_color }};
+    background: #f0f8f0;
+  }
+
+  #complete-routine-{{ section.id }} .routine__form-check {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+  }
+
+  #complete-routine-{{ section.id }} .routine__form-item--checked .routine__form-check {
+    background: {{ section.settings.accent_color }};
+    border-color: {{ section.settings.accent_color }};
+  }
+
+  #complete-routine-{{ section.id }} .routine__form-check svg {
+    width: 12px;
+    height: 12px;
+    fill: #ffffff;
+  }
+
+  #complete-routine-{{ section.id }} .routine__form-label {
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+  }
+
+  /* ── Product image ── */
+  #complete-routine-{{ section.id }} .routine__image-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #complete-routine-{{ section.id }} .routine__product-img {
+    max-width: 380px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  #complete-routine-{{ section.id }} .routine__product-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    #complete-routine-{{ section.id }} {
+      padding: 40px 0;
+    }
+
+    #complete-routine-{{ section.id }} .routine__grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    #complete-routine-{{ section.id }} .routine__product-img {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+  }
+{%- endstyle -%}
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+<section id="complete-routine-{{ section.id }}">
+  <div class="routine__inner">
+    <div class="routine__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="routine__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="routine__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="routine__grid">
+      <div class="routine__form-card">
+        {%- if section.settings.form_title != blank -%}
+          <h3 class="routine__form-title">{{ section.settings.form_title }}</h3>
+        {%- endif -%}
+        <ul class="routine__form-items">
+          {%- for block in section.blocks -%}
+            <li class="routine__form-item{% if block.settings.is_checked %} routine__form-item--checked{% endif %}" {{ block.shopify_attributes }}>
+              <span class="routine__form-check">
+                {%- if block.settings.is_checked -%}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                {%- endif -%}
+              </span>
+              <span class="routine__form-label">{{ block.settings.label }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <div class="routine__image-col">
+        {%- if section.settings.product_image != blank -%}
+          <div class="routine__product-img">
+            {{ section.settings.product_image | image_url: width: 800 | image_tag: sizes: '(min-width: 768px) 380px, 280px', widths: '280, 380, 560, 760, 800' }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Complete Routine",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Complete Your <em>Routine</em>"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Our synergy blends are crafted to work together — so you can build your optimal daily stack."
+    },
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form card title",
+      "default": "Customize Your Routine"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f8f8f6"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2d7a3a"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "checklist_item",
+      "name": "Routine Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Item label",
+          "default": "Foundation Support"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_checked",
+          "label": "Pre-checked?",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Complete Routine",
+      "blocks": [
+        {
+          "type": "checklist_item",
+          "settings": { "label": "Foundation Support", "is_checked": true }
+        },
+        {
+          "type": "checklist_item",
+          "settings": { "label": "Digestive Enzyme", "is_checked": false }
+        },
+        {
+          "type": "checklist_item",
+          "settings": { "label": "Probiotic Power", "is_checked": false }
+        },
+        {
+          "type": "checklist_item",
+          "settings": { "label": "Daily Multivitamin", "is_checked": false }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

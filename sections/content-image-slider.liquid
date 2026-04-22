@@ -1,0 +1,299 @@
+<div class="custom-carousel" id="carousel-{{ section.id }}">
+  <div class="carousel-slides">
+    {% for block in section.blocks %}
+    <div class="carousel-slide {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+      {% if block.settings.image %}
+      <img src="{{ block.settings.image | img_url: 'master' }}" alt="Slide {{ forloop.index }}">
+      {% else %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+
+      <!-- overlay (gradient) -->
+      <div class="carousel-overlay"></div>
+
+      <div class="carousel-content">
+        {% if block.settings.title != blank %}
+        <h2 style="color: {{ block.settings.title_color | default: '#ffffff' }};">{{ block.settings.title }}</h2>
+        {% endif %}
+
+        {% if block.settings.subtitle != blank %}
+        <p style="color: {{ block.settings.subtitle_color | default: '#ffffff' }};">{{ block.settings.subtitle }}</p>
+        {% endif %}
+
+        {% if block.settings.button_label != blank %}
+        <a href="{{ block.settings.button_link }}" class="carousel-btn">
+          {{ block.settings.button_label }}
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="carousel-thumbs" aria-hidden="false">
+    {% for block in section.blocks %}
+    <div class="carousel-thumb {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+      {% if block.settings.image %}
+      <img src="{{ block.settings.image | img_url: '200x' }}" alt="Thumb {{ forloop.index }}">
+      {% else %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+/* Container */
+.custom-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  --carousel-transition: .6s;
+}
+
+/* Slides wrapper */
+.carousel-slides {
+  position: relative;
+}
+
+/* Each slide stacks (fade effect) */
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--carousel-transition) ease;
+  display: block;
+}
+
+/* Active slide visible */
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+/* Image fills width, natural height controls container height */
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* gradient overlay to darken image for readable text */
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.65) 100%);
+  z-index: 4;
+}
+
+/* Centered content */
+.carousel-content {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 6;
+  width: 88%;
+  max-width: 900px;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Heading + paragraph */
+.carousel-content h2 {
+  margin: 0 0 12px 0;
+  font-size: clamp(20px, 4vw, 48px);
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+.carousel-content p {
+  margin: 0 0 18px 0;
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 1.5;
+}
+
+/* Button */
+.carousel-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: #ffffff;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  z-index: 7;
+}
+
+/* Thumbnails row */
+.carousel-thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  background-color: white;
+  
+    padding-top: 15px;
+
+  z-index: 8;
+  position: relative;
+}
+
+.carousel-thumb {
+  width: 72px;
+  height: 48px;
+  cursor: pointer;
+  opacity: .45;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: transform .25s ease, opacity .25s ease, border-color .25s ease;
+  box-sizing: border-box;
+  background: #f4f4f4;
+}
+
+.carousel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-thumb.active {
+  opacity: 1;
+  transform: scale(1.05);
+  border-color: rgba(0,0,0,0.12);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .carousel-content h2 { font-size: clamp(18px, 6vw, 32px); }
+  .carousel-thumb { width: 56px; height: 40px; }
+  .carousel-content { max-width: 92%; padding: 8px; 
+   top: 90%;}
+}
+
+@media (max-width: 480px) {
+  .carousel-btn {
+    padding: 6px 15px;
+  
+    font-size: 12px;
+  }
+  .carousel-content h2 { font-size: 18px; }
+  .carousel-content p { display: none; } /* optional: hide description on very small */
+  .carousel-thumb { width: 48px; height: 34px; }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.querySelector("#carousel-{{ section.id }}");
+  if (!root) return;
+
+  const slides = Array.from(root.querySelectorAll(".carousel-slide"));
+  const thumbs = Array.from(root.querySelectorAll(".carousel-thumb"));
+  if (!slides.length) return;
+
+  let index = 0;
+  const autoplayMs = {{ section.settings.autoplay_speed | times: 1000 }};
+  let autoplayTimer = null;
+
+  function show(i) {
+    if (i < 0) i = slides.length - 1;
+    if (i >= slides.length) i = 0;
+
+    slides.forEach((s, idx) => {
+      s.classList.toggle("active", idx === i);
+    });
+
+    thumbs.forEach((t, idx) => {
+      t.classList.toggle("active", idx === i);
+    });
+
+    index = i;
+    restartAutoplay();
+  }
+
+  function next() { show(index + 1); }
+  function prev() { show(index - 1); }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(next, autoplayMs);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  // Thumbnail clicks
+  thumbs.forEach(t => {
+    t.addEventListener("click", (e) => {
+      const idx = Number(t.dataset.index);
+      if (!Number.isNaN(idx)) show(idx);
+    });
+  });
+
+  // Pause on hover (slides area or thumbs)
+  [root.querySelector(".carousel-slides"), root.querySelector(".carousel-thumbs")].forEach(el => {
+    if (!el) return;
+    el.addEventListener("mouseenter", stopAutoplay);
+    el.addEventListener("mouseleave", startAutoplay);
+  });
+
+  // Initialize
+  show(0);
+  startAutoplay();
+});
+</script>
+
+{% schema %}
+{
+  "name": "Custom Fade Slider",
+  "settings": [
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "unit": "sec",
+      "label": "Autoplay Speed (seconds)",
+      "default": 7
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle" },
+        { "type": "color", "id": "title_color", "label": "Title color", "default": "#ffffff" },
+        { "type": "color", "id": "subtitle_color", "label": "Subtitle color", "default": "#ffffff" },
+        { "type": "text", "id": "button_label", "label": "Button label" },
+        { "type": "url", "id": "button_link", "label": "Button link" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Custom Fade Slider" }
+  ],
+  "max_blocks": 8
+}
+{% endschema %}
