@@ -365,7 +365,6 @@
         "heading_accent": "Routine",
         "subtitle": "Personalise your wellness stack with our science-backed pairings.",
         "form_title": "Customize Your Routine",
-        "form_subtitle": "Pairs well with what's in your cart",
         "background_color": "#f8f8f6",
         "heading_color": "#1a1a1a",
         "text_color": "#555555",
@@ -379,49 +378,53 @@
         "testimonial_Tby7L8": {
           "type": "testimonial",
           "settings": {
-            "youtube_video": "",
+            "customer_initial": "S",
+            "customer_full_name": "Sarah Mitchell",
             "star_rating": 5,
             "title": "<p>I’ve tried countless supplements, but nothing compares to WellScience. The quality is unmatched, and I feel more energized than ever. </p><p>— Sarah M</p>",
+            "youtube_video": "",
             "link_label": "",
             "link": "",
-            "customer_initial": "S",
-            "initial_color": "#3498db"
+            "external_link": false
           }
         },
         "testimonial_nRfQf4": {
           "type": "testimonial",
           "settings": {
-            "youtube_video": "",
+            "customer_initial": "N",
+            "customer_full_name": "Sarah Mitchell",
             "star_rating": 5,
             "title": "<p>From the packaging to the results, everything screams premium. My digestion and overall health have improved significantly.<br/><br/>— James</p>",
+            "youtube_video": "",
             "link_label": "",
             "link": "",
-            "customer_initial": "N",
-            "initial_color": "#2d7a3a"
+            "external_link": false
           }
         },
         "testimonial_BNhM98": {
           "type": "testimonial",
           "settings": {
-            "youtube_video": "",
+            "customer_initial": "J",
+            "customer_full_name": "Sarah Mitchell",
             "star_rating": 5,
             "title": "<p>I was skeptical at first, but after just a few weeks, I feel the difference. WellScience is now a staple in my daily routine.</p><p>— Olivia</p>",
+            "youtube_video": "",
             "link_label": "",
             "link": "",
-            "customer_initial": "J",
-            "initial_color": "#2c3e50"
+            "external_link": false
           }
         },
         "testimonial_NWTFBy": {
           "type": "testimonial",
           "settings": {
-            "youtube_video": "",
+            "customer_initial": "P",
+            "customer_full_name": "Sarah Mitchell",
             "star_rating": 5,
             "title": "<p>As a fitness enthusiast, I’ve tried many supplements, but WellScience stands out. The purity and effectiveness are on another level.<br/><br/>— Sandeep</p>",
+            "youtube_video": "",
             "link_label": "",
             "link": "",
-            "customer_initial": "P",
-            "initial_color": "#8e44ad"
+            "external_link": false
           }
         }
       },
@@ -440,7 +443,7 @@
         "per_row": 4,
         "video_style": "control_bar",
         "desktop_display": "grid",
-        "mobile_display": "grid",
+        "mobile_display": "scroll",
         "text_size": 100,
         "heading_color": "#2d7a3a",
         "text_color": "#333333",
@@ -449,10 +452,17 @@
         "border_color": "#121212",
         "border_width": 1,
         "border_radius": 0,
+        "text_background_color": "#ffffff",
+        "background_color": "#f1f2ec",
         "base_width": 95,
         "max_width": "",
         "inner_padding": 40,
-        "outer_margin": 0
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "system_ui_n4"
       }
     },
     "content_image_slider_gTTKcH": {
