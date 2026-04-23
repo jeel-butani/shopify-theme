@@ -1,29 +1,31 @@
-{{ 'section-about-core-values.css' | asset_url | stylesheet_tag }}
+{{ 'about-custom.css' | asset_url | stylesheet_tag }}
 
 <div class="about-core-values">
   <div class="page-width">
     <div class="values-header">
-      <h2 class="values-title">{{ section.settings.section_title | split: ' ' | slice: 0, -1 | join: ' ' }}<span class="highlight-color">{{ section.settings.section_title | split: ' ' | last }}</span></h2>
+      <h2 class="values-title">
+        {%- assign title_parts = section.settings.section_title | split: ' ' -%}
+        {%- for part in title_parts -%}
+          {%- if forloop.last -%}
+            <span class="highlight-color">{{ part }}</span>
+          {%- else -%}
+            {{ part }} 
+          {%- endif -%}
+        {%- endfor -%}
+      </h2>
       <p class="values-subtitle">{{ section.settings.section_subtitle }}</p>
     </div>
 
     <div class="values-grid">
       {%- for block in section.blocks -%}
-        <div class="value-card">
-          {%- if block.settings.icon != blank -%}
-            <div class="value-icon">
-              {{ block.settings.icon | image_url: width: 60 | image_tag: width: 60, height: 60, class: 'icon-img' }}
-            </div>
-          {%- endif -%}
+        <div class="value-card" {{ block.shopify_attributes }}>
           <h3 class="value-title">{{ block.settings.title }}</h3>
           <p class="value-description">{{ block.settings.description }}</p>
-          {%- if block.settings.highlights != blank -%}
-            <ul class="value-highlights">
-              {%- assign highlights = block.settings.highlights | split: ',' -%}
-              {%- for highlight in highlights -%}
-                <li>{{ highlight | strip }}</li>
-              {%- endfor -%}
-            </ul>
+          {%- if block.settings.link_url != blank -%}
+            <a href="{{ block.settings.link_url }}" class="value-link">
+              {{ block.settings.link_text | default: 'Learn more' }}
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
           {%- endif -%}
         </div>
       {%- endfor -%}
@@ -33,7 +35,7 @@
 
 {% schema %}
 {
-  "name": "Core Values",
+  "name": "About - Core Values",
   "settings": [
     {
       "type": "text",
@@ -54,11 +56,6 @@
       "name": "Value Card",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Icon"
-        },
-        {
           "type": "text",
           "id": "title",
           "label": "Title",
@@ -71,10 +68,15 @@
           "default": "Every decision is grounded in rigorous scientific evidence and peer-reviewed research."
         },
         {
-          "type": "textarea",
-          "id": "highlights",
-          "label": "Highlights (comma-separated)",
-          "default": "Evidence-based, Peer-reviewed, Continuously updated"
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Learn more"
         }
       ]
     }
@@ -86,29 +88,25 @@
         {
           "type": "value_card",
           "settings": {
-            "title": "Science First",
-            "description": "Every decision is grounded in rigorous scientific evidence and peer-reviewed research."
+            "title": "Science First"
           }
         },
         {
           "type": "value_card",
           "settings": {
-            "title": "Botanical Purity",
-            "description": "We source the highest quality botanical ingredients from certified sustainable suppliers."
+            "title": "Botanical Purity"
           }
         },
         {
           "type": "value_card",
           "settings": {
-            "title": "Sustainability",
-            "description": "Environmental responsibility is embedded in everything we do, from sourcing to packaging."
+            "title": "Sustainability"
           }
         },
         {
           "type": "value_card",
           "settings": {
-            "title": "Radical Transparency",
-            "description": "Full ingredient disclosure and honest communication about what our products can and cannot do."
+            "title": "Radical Transparency"
           }
         }
       ]
@@ -116,3 +114,4 @@
   ]
 }
 {% endschema %}
+

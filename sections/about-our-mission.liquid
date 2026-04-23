@@ -1,16 +1,25 @@
-{{ 'section-about-our-mission.css' | asset_url | stylesheet_tag }}
+{{ 'about-custom.css' | asset_url | stylesheet_tag }}
 
 <div class="about-mission">
   <div class="page-width">
     <div class="mission-header">
-      <h2 class="mission-title">{{ section.settings.section_title | split: ' ' | slice: 0, -1 | join: ' ' }}<span class="highlight-color">{{ section.settings.section_title | split: ' ' | last }}</span></h2>
+      <h2 class="mission-title">
+        {%- assign title_parts = section.settings.section_title | split: ' ' -%}
+        {%- for part in title_parts -%}
+          {%- if forloop.last -%}
+            <span class="highlight-color">{{ part }}</span>
+          {%- else -%}
+            {{ part }} 
+          {%- endif -%}
+        {%- endfor -%}
+      </h2>
       <p class="mission-subtitle">{{ section.settings.section_subtitle }}</p>
     </div>
 
     <div class="mission-content">
       <div class="mission-list">
         {%- for block in section.blocks -%}
-          <div class="mission-item">
+          <div class="mission-item" {{ block.shopify_attributes }}>
             <div class="mission-number">{{ block.settings.number }}</div>
             <div class="mission-item-content">
               <h3 class="mission-item-title">{{ block.settings.title }}</h3>
@@ -21,13 +30,13 @@
       </div>
 
       <div class="mission-highlights">
-        <div class="highlight-box highlight-box-primary">
-          <h3 class="highlight-title">Nature & Science Are <span class="highlight-accent">Perfect Partners</span></h3>
+        <div class="highlight-box">
+          <h3 class="highlight-title">{{ section.settings.highlight_box_title }}</h3>
           <ul class="highlight-list">
-            <li>Plant-Sourced</li>
-            <li>Scientifically Tested</li>
-            <li>Sustainable Sourced</li>
-            <li>Zero Fillers</li>
+            {%- assign items = section.settings.highlight_box_items | split: ',' -%}
+            {%- for item in items -%}
+              <li>{{ item | strip }}</li>
+            {%- endfor -%}
           </ul>
         </div>
       </div>
@@ -37,25 +46,37 @@
 
 {% schema %}
 {
-  "name": "Our Mission",
+  "name": "About - Vision Split",
   "settings": [
     {
       "type": "text",
       "id": "section_title",
       "label": "Section Title",
-      "default": "Our Mission"
+      "default": "Our Vision"
     },
     {
       "type": "textarea",
       "id": "section_subtitle",
       "label": "Section Subtitle",
-      "default": "To empower people to take control of their health through scientifically-proven, naturally-sourced supplements with complete transparency."
+      "default": "To empower people to take control of their health through scientifically-proven supplements."
+    },
+    {
+      "type": "text",
+      "id": "highlight_box_title",
+      "label": "Highlight Box Title",
+      "default": "Nature & Science Are Perfect Partners"
+    },
+    {
+      "type": "textarea",
+      "id": "highlight_box_items",
+      "label": "Highlight Items (comma-separated)",
+      "default": "Plant-Sourced, Scientifically Tested, Sustainable Sourced, Zero Fillers"
     }
   ],
   "blocks": [
     {
       "type": "mission_item",
-      "name": "Mission Item",
+      "name": "Point",
       "settings": [
         {
           "type": "text",
@@ -80,38 +101,34 @@
   ],
   "presets": [
     {
-      "name": "About - Our Mission",
+      "name": "About - Our Vision Split",
       "blocks": [
         {
           "type": "mission_item",
           "settings": {
             "number": "01",
-            "title": "Evidence-Led Formulation",
-            "description": "Every ingredient in our supplements is selected based on scientific research and clinical studies to ensure maximum efficacy."
+            "title": "Evidence-Led Formulation"
           }
         },
         {
           "type": "mission_item",
           "settings": {
             "number": "02",
-            "title": "Certified Botanical Sourcing",
-            "description": "We partner with certified organic suppliers who share our commitment to sustainability and quality."
+            "title": "Certified Botanical Sourcing"
           }
         },
         {
           "type": "mission_item",
           "settings": {
             "number": "03",
-            "title": "UK GMP Manufacturing",
-            "description": "Our products are manufactured in UK-certified facilities under strict quality control standards."
+            "title": "UK GMP Manufacturing"
           }
         },
         {
           "type": "mission_item",
           "settings": {
             "number": "04",
-            "title": "Clean Formulas, Always",
-            "description": "No artificial additives, no unnecessary fillers, no compromises on purity and integrity."
+            "title": "Clean Formulas, Always"
           }
         }
       ]
@@ -119,3 +136,4 @@
   ]
 }
 {% endschema %}
+

@@ -1,0 +1,251 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_fxLK9K": {
+      "type": "image-banner",
+      "blocks": {
+        "text_GBUXkF": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>Welcome to WellScience, trading name for the company “The Virtual Village Ltd”. where your journey to a healthier, happier you begins with trust, excellence, and community.</strong>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_GBUXkF"
+      ],
+      "name": "About Us Hero Section",
+      "settings": {
+        "image": "shopify://shop_images/vibrant-green-leaves-with-soft-bokeh-background_1.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "vision_section": {
+      "type": "about-our-vision",
+      "blocks": {
+        "vision_card_1": {
+          "type": "vision_card",
+          "settings": {
+            "card_number": "01",
+            "card_title": "Science Without Compromise",
+            "card_description": "We believe in rigorous scientific standards and evidence-based formulations that deliver real results."
+          }
+        },
+        "vision_card_2": {
+          "type": "vision_card",
+          "settings": {
+            "card_number": "02",
+            "card_title": "A Healthier Planet",
+            "card_description": "Sustainability and environmental responsibility are at the heart of everything we do."
+          }
+        },
+        "vision_card_3": {
+          "type": "vision_card",
+          "settings": {
+            "card_number": "03",
+            "card_title": "Radical Transparency",
+            "card_description": "We believe you deserve to know exactly what's in your supplements and why it matters."
+          }
+        }
+      },
+      "block_order": [
+        "vision_card_1",
+        "vision_card_2",
+        "vision_card_3"
+      ],
+      "settings": {}
+    },
+    "mission_section": {
+      "type": "about-our-mission",
+      "blocks": {
+        "mission_item_1": {
+          "type": "mission_item",
+          "settings": {
+            "number": "01",
+            "title": "Evidence-Led Formulation",
+            "description": "Every ingredient in our supplements is selected based on scientific research and clinical studies to ensure maximum efficacy."
+          }
+        },
+        "mission_item_2": {
+          "type": "mission_item",
+          "settings": {
+            "number": "02",
+            "title": "Certified Botanical Sourcing",
+            "description": "We partner with certified organic suppliers who share our commitment to sustainability and quality."
+          }
+        },
+        "mission_item_3": {
+          "type": "mission_item",
+          "settings": {
+            "number": "03",
+            "title": "UK GMP Manufacturing",
+            "description": "Our products are manufactured in UK-certified facilities under strict quality control standards."
+          }
+        },
+        "mission_item_4": {
+          "type": "mission_item",
+          "settings": {
+            "number": "04",
+            "title": "Clean Formulas, Always",
+            "description": "No artificial additives, no unnecessary fillers, no compromises on purity and integrity."
+          }
+        }
+      },
+      "block_order": [
+        "mission_item_1",
+        "mission_item_2",
+        "mission_item_3",
+        "mission_item_4"
+      ],
+      "settings": {}
+    },
+    "values_section": {
+      "type": "about-core-values",
+      "blocks": {
+        "value_card_1": {
+          "type": "value_card",
+          "settings": {
+            "title": "Science First",
+            "description": "Every decision is grounded in rigorous scientific evidence and peer-reviewed research."
+          }
+        },
+        "value_card_2": {
+          "type": "value_card",
+          "settings": {
+            "title": "Botanical Purity",
+            "description": "We source the highest quality botanical ingredients from certified sustainable suppliers."
+          }
+        },
+        "value_card_3": {
+          "type": "value_card",
+          "settings": {
+            "title": "Sustainability",
+            "description": "Environmental responsibility is embedded in everything we do, from sourcing to packaging."
+          }
+        },
+        "value_card_4": {
+          "type": "value_card",
+          "settings": {
+            "title": "Radical Transparency",
+            "description": "Full ingredient disclosure and honest communication about what our products can and cannot do."
+          }
+        }
+      },
+      "block_order": [
+        "value_card_1",
+        "value_card_2",
+        "value_card_3",
+        "value_card_4"
+      ],
+      "settings": {}
+    },
+    "certified_section": {
+      "type": "about-certified",
+      "blocks": {
+        "cert_1": {
+          "type": "certification",
+          "settings": {
+            "certification_name": "GMP Certified"
+          }
+        },
+        "cert_2": {
+          "type": "certification",
+          "settings": {
+            "certification_name": "Organic Approved"
+          }
+        },
+        "cert_3": {
+          "type": "certification",
+          "settings": {
+            "certification_name": "Lab Tested"
+          }
+        },
+        "cert_4": {
+          "type": "certification",
+          "settings": {
+            "certification_name": "B Corp"
+          }
+        },
+        "cert_5": {
+          "type": "certification",
+          "settings": {
+            "certification_name": "Quality First"
+          }
+        },
+        "cert_6": {
+          "type": "certification",
+          "settings": {
+            "certification_name": "Eco-Friendly"
+          }
+        },
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "stat_number": "50k+",
+            "stat_label": "HAPPY CUSTOMERS"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "stat_number": "24+",
+            "stat_label": "SCIENCE BACKED FORMULAS"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "stat_number": "100%",
+            "stat_label": "UK GMP MANUFACTURED"
+          }
+        }
+      },
+      "block_order": [
+        "cert_1",
+        "cert_2",
+        "cert_3",
+        "cert_4",
+        "cert_5",
+        "cert_6",
+        "stat_1",
+        "stat_2",
+        "stat_3"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "image_banner_fxLK9K",
+    "vision_section",
+    "mission_section",
+    "values_section",
+    "certified_section",
+    "main"
+  ]
+}

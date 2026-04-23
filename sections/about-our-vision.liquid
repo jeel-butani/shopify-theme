@@ -1,15 +1,33 @@
-{{ 'section-about-our-vision.css' | asset_url | stylesheet_tag }}
+{{ 'about-custom.css' | asset_url | stylesheet_tag }}
 
 <div class="about-vision">
   <div class="page-width">
     <div class="vision-header">
-      <h2 class="vision-title">{{ section.settings.section_title | split: ' ' | slice: 0, -1 | join: ' ' }}<span class="highlight-color">{{ section.settings.section_title | split: ' ' | last }}</span></h2>
+      <h2 class="vision-title">
+        {%- assign title_parts = section.settings.section_title | split: ' ' -%}
+        {%- for part in title_parts -%}
+          {%- if forloop.last -%}
+            <span class="highlight-color">{{ part }}</span>
+          {%- else -%}
+            {{ part }} 
+          {%- endif -%}
+        {%- endfor -%}
+      </h2>
       <p class="vision-subtitle">{{ section.settings.section_subtitle }}</p>
     </div>
 
     <div class="vision-cards">
       {%- for block in section.blocks -%}
-        <div class="vision-card">
+        <div class="vision-card" {{ block.shopify_attributes }}>
+          <div class="card-icon-wrapper">
+            {%- if block.settings.icon_svg != blank -%}
+              {{ block.settings.icon_svg }}
+            {%- elsif block.settings.icon_image != blank -%}
+              {{ block.settings.icon_image | image_url: width: 60 | image_tag: width: 30, height: 30 }}
+            {%- else -%}
+              {{- 'icon-leaf.svg' | inline_asset_content -}}
+            {%- endif -%}
+          </div>
           <div class="card-number">{{ block.settings.card_number }}</div>
           <h3 class="card-title">{{ block.settings.card_title }}</h3>
           <p class="card-description">{{ block.settings.card_description }}</p>
@@ -19,8 +37,10 @@
 
     {%- if section.settings.quote_text != blank -%}
       <div class="vision-quote">
-        <p class="quote-text">{{ section.settings.quote_text }}</p>
-        <p class="quote-author">{{ section.settings.quote_author }}</p>
+        <div class="quote-text">{{ section.settings.quote_text }}</div>
+        {%- if section.settings.quote_author != blank -%}
+          <p class="quote-author">— {{ section.settings.quote_author }}</p>
+        {%- endif -%}
       </div>
     {%- endif -%}
   </div>
@@ -28,37 +48,48 @@
 
 {% schema %}
 {
-  "name": "Our Vision",
+  "name": "About - Vision/Mission",
   "settings": [
     {
       "type": "text",
       "id": "section_title",
       "label": "Section Title",
-      "default": "Our Vision"
+      "default": "Our Mission"
     },
     {
       "type": "textarea",
       "id": "section_subtitle",
       "label": "Section Subtitle",
-      "default": "We envision a world where every person has access to the highest-quality, naturally sourced supplements that work harmoniously with their body."
+      "default": "We envision a world where every person has access to the highest-quality, naturally sourced supplements."
     },
     {
       "type": "richtext",
       "id": "quote_text",
       "label": "Quote Text",
-      "default": "<p>\"The future of wellness is one where science and nature speak the same language — where a supplement bottle is a promise you can trust, not a label you need to decode.\"</p>"
+      "default": "<p>\"The future of wellness is one where science and nature speak the same language — where a supplement bottle is a promise you can trust.\"</p>"
     },
     {
       "type": "text",
       "id": "quote_author",
-      "label": "Quote Author"
+      "label": "Quote Author",
+      "default": "The WellScience Team"
     }
   ],
   "blocks": [
     {
       "type": "vision_card",
-      "name": "Vision Card",
+      "name": "Card",
       "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG (optional)"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image (if SVG is empty)"
+        },
         {
           "type": "text",
           "id": "card_number",
@@ -75,37 +106,34 @@
           "type": "textarea",
           "id": "card_description",
           "label": "Card Description",
-          "default": "We believe in rigorous scientific standards and evidence-based formulations that deliver real results."
+          "default": "We believe in rigorous scientific standards and evidence-based formulations."
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "About - Our Vision",
+      "name": "About - Our Mission Top",
       "blocks": [
         {
           "type": "vision_card",
           "settings": {
             "card_number": "01",
-            "card_title": "Science Without Compromise",
-            "card_description": "We believe in rigorous scientific standards and evidence-based formulations that deliver real results."
+            "card_title": "Science Without Compromise"
           }
         },
         {
           "type": "vision_card",
           "settings": {
             "card_number": "02",
-            "card_title": "A Healthier Planet",
-            "card_description": "Sustainability and environmental responsibility are at the heart of everything we do."
+            "card_title": "A Healthier Planet"
           }
         },
         {
           "type": "vision_card",
           "settings": {
             "card_number": "03",
-            "card_title": "Radical Transparency",
-            "card_description": "We believe you deserve to know exactly what's in your supplements and why it matters."
+            "card_title": "Radical Transparency"
           }
         }
       ]
@@ -114,87 +142,3 @@
 }
 {% endschema %}
 
-<style>
-.about-vision {
-  padding: 60px 20px;
-}
-
-.vision-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.vision-title {
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.vision-title .highlight-color {
-  color: #00c9a7;
-}
-
-.vision-subtitle {
-  font-size: 16px;
-  color: #666;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.vision-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-bottom: 60px;
-}
-
-.vision-card {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 30px;
-  text-align: center;
-  background: #fff;
-}
-
-.card-number {
-  font-size: 48px;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.card-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.card-description {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.6;
-}
-
-.vision-quote {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 30px;
-  text-align: center;
-}
-
-.quote-text {
-  font-size: 16px;
-  color: #666;
-  font-style: italic;
-  margin-bottom: 10px;
-  line-height: 1.8;
-}
-
-.quote-author {
-  font-size: 14px;
-  color: #999;
-}
-</style>

@@ -1,0 +1,250 @@
+/* About Page Custom Styles for Premium Look */
+:root {
+  --about-bg-light: #f4f5f0;
+  --about-accent-green: #00c9a7;
+  --about-text-dark: #1a1a1a;
+  --about-text-muted: #666;
+  --about-card-radius: 20px;
+}
+
+.about-vision, .about-mission {
+  background-color: var(--about-bg-light);
+}
+
+.vision-title, .mission-title, .values-title, .certified-title {
+  font-family: var(--font-heading-family);
+  font-size: clamp(32px, 5vw, 56px);
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--about-text-dark);
+}
+
+.vision-title .highlight-color, 
+.mission-title .highlight-color, 
+.values-title .highlight-color, 
+.certified-title .highlight-color {
+  color: var(--about-accent-green);
+  display: block;
+  font-weight: 700;
+}
+
+/* Vision Section Cards (01, 02, 03) */
+.vision-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+}
+
+.vision-card {
+  background: #fff;
+  border-radius: var(--about-card-radius);
+  padding: 3rem 2rem;
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.vision-card:hover {
+  transform: translateY(-10px);
+}
+
+.card-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: #f0f7f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.card-icon-wrapper svg {
+  width: 30px;
+  height: 30px;
+  color: var(--about-accent-green);
+}
+
+.card-number {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--about-text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Mission Section (Split Layout) */
+.mission-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .mission-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mission-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mission-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.mission-number {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--about-text-dark);
+}
+
+.mission-item-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.highlight-box {
+  background: #111;
+  color: #fff;
+  padding: 4rem;
+  border-radius: var(--about-card-radius);
+}
+
+.highlight-title {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.highlight-accent {
+  color: var(--about-accent-green);
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.highlight-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.highlight-list li::before {
+  content: '✓';
+  color: var(--about-accent-green);
+  font-weight: bold;
+}
+
+/* Values Section */
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.value-card {
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  padding: 3rem;
+  border-radius: var(--about-card-radius);
+}
+
+.value-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.value-link {
+  color: var(--about-accent-green);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Certified Section */
+.certifications {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.certification-badge {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+}
+
+.badge-placeholder {
+  width: 80px;
+  height: 80px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin: 0 auto 1rem;
+  font-weight: 800;
+  color: #ccc;
+}
+
+.certified-stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 6rem;
+  border-top: 1px solid #eee;
+  padding-top: 4rem;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--about-text-dark);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  color: var(--about-text-muted);
+  text-transform: uppercase;
+}
