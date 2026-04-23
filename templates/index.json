@@ -19,7 +19,7 @@
         "button_primary_bg": "#3871c0",
         "button_primary_text": "#ffffff",
         "button_label_2": "YUR HEALTH",
-        "button_link_2": "",
+        "button_link_2": "shopify://blogs/news",
         "badge_1_value": "4.9+",
         "badge_1_label": "Rating",
         "badge_2_value": "12K+",
@@ -138,12 +138,12 @@
       "type": "featured-collection",
       "custom_css": [
         ".card-wrapper:hover .media.media--hover-effect > img + img {transform: none !important;}",
-        ".title {font-family: \"Montserrat\", Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400;}"
+        ".title {font-family: \"Montserrat\", Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 700;}"
       ],
       "settings": {
-        "title": "Best <em>Sellers</em>",
+        "title": "Best Sellers",
         "heading_size": "h1",
-        "description": "",
+        "description": "<p>Trusted by thousands — our most loved wellness formulas, clinically dosed and botanically crafted.</p>",
         "show_description": false,
         "description_style": "body",
         "collection": "bestseller",
