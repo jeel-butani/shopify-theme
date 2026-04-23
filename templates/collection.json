@@ -9,8 +9,48 @@
  */
 {
   "sections": {
+    "1776949120c7642168": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0d17642_XpxkhU": {
+          "type": "ai_gen_block_0d17642",
+          "settings": {
+            "background_image": "shopify://shop_images/beautiful-landscape_1.png",
+            "hero_height": 400,
+            "mobile_hero_height": 450,
+            "overlay_opacity": 0.4,
+            "title": "All Products",
+            "heading_size": 60,
+            "first_word_color": "#2fb36d",
+            "rest_words_color": "#3b6db3",
+            "subtitle": "Every formula crafted with clinical-grade ingredients, zero fillers, and full transparency. Your wellness, backed by science.",
+            "subtitle_size": 18,
+            "subtitle_color": "#000000",
+            "button_1_text": "Quality that makes a difference",
+            "button_1_link": "",
+            "button_2_text": "A brand built on trust",
+            "button_2_link": "",
+            "button_3_text": "Bringing happiness to homes",
+            "button_3_link": "",
+            "button_font_size": 12,
+            "button_gap": 20,
+            "button_bg_opacity": 0.2,
+            "button_hover_bg_opacity": 0.4,
+            "button_text_color": "#000000",
+            "button_border_color": "#c9ccc8",
+            "mobile_button_layout": "column"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0d17642_XpxkhU"
+      ],
+      "settings": {}
+    },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "custom_css": [
         "h1 {font-style: bold;}"
       ],
@@ -19,6 +59,108 @@
         "show_collection_image": false,
         "color_scheme": "scheme-1"
       }
+    },
+    "1776947089dea18035": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c55d7cb_ATVCBP": {
+          "type": "ai_gen_block_c55d7cb",
+          "settings": {
+            "container_width": 1400,
+            "padding_vertical": 8,
+            "item_spacing": 12,
+            "icon_position": "left",
+            "mobile_layout": "scroll",
+            "icon_size": 36,
+            "icon_text_gap": 10,
+            "icon_color": "#4a5344",
+            "title_size": 12,
+            "subtitle_size": 10,
+            "text_color": "#262626",
+            "background_color": "#f8faf6",
+            "item_1_icon_type": "shipping",
+            "item_1_icon": "shopify://shop_images/image-Photoroom_-_2026-04-08T110521.050_1.png",
+            "item_1_title": "Free UK Shipping",
+            "item_1_subtitle": "On orders over £30",
+            "item_2_icon_type": "returns",
+            "item_2_icon": "shopify://shop_images/image-Photoroom_-_2026-04-08T112221.065_1.png",
+            "item_2_title": "30-Day Returns",
+            "item_2_subtitle": "Hassle-free policy",
+            "item_3_icon_type": "secure",
+            "item_3_icon": "shopify://shop_images/image-Photoroom_-_2026-04-03T124431.430_1.png",
+            "item_3_title": "Secure Checkout",
+            "item_3_subtitle": "SSL encrypted",
+            "item_4_icon_type": "star",
+            "item_4_icon": "shopify://shop_images/image-Photoroom_-_2026-04-03T124548.660_1.png",
+            "item_4_title": "4.9 / 5 Stars",
+            "item_4_subtitle": "Trusted by thousands",
+            "item_5_icon_type": "certificate",
+            "item_5_icon": "shopify://shop_images/image-Photoroom_-_2026-04-03T124723.682_1.png",
+            "item_5_title": "GMP Certified",
+            "item_5_subtitle": "Quality manufacturing"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c55d7cb_ATVCBP"
+      ],
+      "settings": {}
+    },
+    "1776947732f6ef4635": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_64c12b0_fH7iQC": {
+          "type": "ai_gen_block_64c12b0",
+          "settings": {
+            "alignment": "flex-start",
+            "horizontal_padding": 5,
+            "vertical_padding": 10,
+            "chip_spacing": 8,
+            "show_all_products": true,
+            "all_products_label": "All Products",
+            "collection_1": "bestseller",
+            "label_1": "",
+            "collection_2": "bundles",
+            "label_2": "Gut & Digestive",
+            "collection_3": "gut-health",
+            "label_3": "Immunity & Defence",
+            "collection_4": "",
+            "label_4": "",
+            "collection_5": "",
+            "label_5": "",
+            "collection_6": "",
+            "label_6": "",
+            "collection_7": "",
+            "label_7": "",
+            "collection_8": "",
+            "label_8": "",
+            "collection_9": "",
+            "label_9": "",
+            "collection_10": "",
+            "label_10": "",
+            "chip_padding_vertical": 4,
+            "chip_padding_horizontal": 14,
+            "chip_font_size": 12,
+            "chip_font_weight": "500",
+            "chip_border_width": 0,
+            "chip_background": "#f3f5f2",
+            "chip_text_color": "#262626",
+            "chip_border_color": "#f3f5f2",
+            "chip_hover_background": "#698e69",
+            "chip_hover_text_color": "#fffafa",
+            "chip_hover_border_color": "#c9ccc8",
+            "chip_active_background": "#4a5344",
+            "chip_active_text_color": "#ffffff",
+            "chip_active_border_color": "#4a5344"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_64c12b0_fH7iQC"
+      ],
+      "settings": {}
     },
     "product-grid": {
       "type": "main-collection-product-grid",
@@ -42,7 +184,10 @@
     }
   },
   "order": [
+    "1776949120c7642168",
     "banner",
+    "1776947089dea18035",
+    "1776947732f6ef4635",
     "product-grid"
   ]
 }

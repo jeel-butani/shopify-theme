@@ -1,0 +1,542 @@
+{% doc %}
+  @prompt
+    Create a Shopify section that displays collection categories as horizontal filter chips.
+    
+    Requirements:
+    
+    1. Layout:
+    - Full width horizontal bar
+    - Center aligned
+    - Scrollable horizontally on mobile
+    
+    2. Items:
+    - Each item represents a collection
+    - Display as rounded pills (chips)
+    
+    3. Example Items:
+    - All Products
+    - Gut & Digestive
+    - Immunity & Defence
+    - Detox & Cleanse
+    - Vitality & Energy
+    - Weight & Fitness
+    - Bundles
+    
+    4. Design:
+    - Rounded buttons (border-radius: 999px)
+    - Light background (e.g. #f3f5f2)
+    - Active item highlighted (dark green background, white text)
+    - Small padding inside (8px 16px)
+    
+    5. Interaction:
+    - Each chip links to its collection page
+    - Active state based on current collection
+    
+    6. Schema:
+    - Blocks = collections
+    - Each block:
+      - collection picker
+      - custom label (optional)
+    
+    7. Classes:
+    - .collection-filter-bar
+    - .filter-chip
+    - .active
+    
+    Goal:
+    Replicate modern ecommerce category filter pills like in premium Shopify themes.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .collection-filter-bar-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: {{ block.settings.vertical_padding }}px 0;
+  }
+
+  .collection-filter-bar-{{ ai_gen_id }}::-webkit-scrollbar {
+    display: none;
+  }
+
+  .collection-filter-bar__wrapper-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: {{ block.settings.alignment }};
+    align-items: center;
+    gap: {{ block.settings.chip_spacing }}px;
+    min-width: min-content;
+    padding: 0 {{ block.settings.horizontal_padding }}px;
+  }
+
+  .filter-chip-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: {{ block.settings.chip_padding_vertical }}px {{ block.settings.chip_padding_horizontal }}px;
+    background-color: {{ block.settings.chip_background }};
+    color: {{ block.settings.chip_text_color }};
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: {{ block.settings.chip_font_size }}px;
+    font-weight: {{ block.settings.chip_font_weight }};
+    transition: all 0.3s ease;
+    border: {{ block.settings.chip_border_width }}px solid {{ block.settings.chip_border_color }};
+  }
+
+  .filter-chip-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.chip_hover_background }};
+    color: {{ block.settings.chip_hover_text_color }};
+    border-color: {{ block.settings.chip_hover_border_color }};
+  }
+
+  .filter-chip-{{ ai_gen_id }}.active {
+    background-color: {{ block.settings.chip_active_background }};
+    color: {{ block.settings.chip_active_text_color }};
+    border-color: {{ block.settings.chip_active_border_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .collection-filter-bar__wrapper-{{ ai_gen_id }} {
+      justify-content: flex-start;
+    }
+  }
+{% endstyle %}
+
+<collection-filter-bar-{{ ai_gen_id }} class="collection-filter-bar-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="collection-filter-bar__wrapper-{{ ai_gen_id }}">
+    {% if block.settings.show_all_products %}
+      <a
+        href="/collections/all"
+        class="filter-chip-{{ ai_gen_id }}"
+        data-collection-handle="all"
+      >
+        {{ block.settings.all_products_label }}
+      </a>
+    {% endif %}
+
+    {% for i in (1..10) %}
+      {% liquid
+        assign collection_key = 'collection_' | append: i
+        assign label_key = 'label_' | append: i
+        assign collection = block.settings[collection_key]
+        assign custom_label = block.settings[label_key]
+
+        if collection != blank
+          if custom_label != blank
+            assign label = custom_label
+          else
+            assign label = collection.title
+          endif
+        endif
+      %}
+
+      {% if collection != blank %}
+        <a
+          href="{{ collection.url }}"
+          class="filter-chip-{{ ai_gen_id }}"
+          data-collection-handle="{{ collection.handle }}"
+        >
+          {{ label }}
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</collection-filter-bar-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class CollectionFilterBar{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setActiveChip();
+      }
+
+      setActiveChip() {
+        const currentPath = window.location.pathname;
+        const chips = this.querySelectorAll('.filter-chip-{{ ai_gen_id }}');
+
+        chips.forEach(chip => {
+          chip.classList.remove('active');
+          const chipUrl = chip.getAttribute('href');
+
+          if (currentPath === chipUrl || (currentPath.includes('/collections/') && chipUrl.includes(currentPath))) {
+            chip.classList.add('active');
+          }
+        });
+
+        if (!this.querySelector('.filter-chip-{{ ai_gen_id }}.active') && chips.length > 0) {
+          chips[0].classList.add('active');
+        }
+      }
+    }
+
+    customElements.define('collection-filter-bar-{{ ai_gen_id }}', CollectionFilterBar{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Collection filter bar",
+  "tag": null,
+  "class": "collection-filter-bar-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "label": "Horizontal padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "label": "Vertical padding",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "chip_spacing",
+      "label": "Space between chips",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "All products chip"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_all_products",
+      "label": "Show all products chip",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "all_products_label",
+      "label": "Label",
+      "default": "All Products"
+    },
+    {
+      "type": "header",
+      "content": "Collection 1"
+    },
+    {
+      "type": "collection",
+      "id": "collection_1",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label_1",
+      "label": "Custom label"
+    },
+    {
+      "type": "header",
+      "content": "Collection 2"
+    },
+    {
+      "type": "collection",
+      "id": "collection_2",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label_2",
+      "label": "Custom label"
+    },
+    {
+      "type": "header",
+      "content": "Collection 3"
+    },
+    {
+      "type": "collection",
+      "id": "collection_3",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label_3",
+      "label": "Custom label"
+    },
+    {
+      "type": "header",
+      "content": "Collection 4"
+    },
+    {
+      "type": "collection",
+      "id": "collection_4",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label_4",
+      "label": "Custom label"
+    },
+    {
+      "type": "header",
+      "content": "Collection 5"
+    },
+    {
+      "type": "collection",
+      "id": "collection_5",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label_5",
+      "label": "Custom label"
+    },
+    {
+      "type": "header",
+      "content": "Collection 6"
+    },
+    {
+      "type": "collection",
+      "id": "collection_6",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label_6",
+      "label": "Custom label"
+    },
+    {
+      "type": "header",
+      "content": "Collection 7"
+    },
+    {
+      "type": "collection",
+      "id": "collection_7",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label_7",
+      "label": "Custom label"
+    },
+    {
+      "type": "header",
+      "content": "Collection 8"
+    },
+    {
+      "type": "collection",
+      "id": "collection_8",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label_8",
+      "label": "Custom label"
+    },
+    {
+      "type": "header",
+      "content": "Collection 9"
+    },
+    {
+      "type": "collection",
+      "id": "collection_9",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label_9",
+      "label": "Custom label"
+    },
+    {
+      "type": "header",
+      "content": "Collection 10"
+    },
+    {
+      "type": "collection",
+      "id": "collection_10",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "label_10",
+      "label": "Custom label"
+    },
+    {
+      "type": "header",
+      "content": "Chip style"
+    },
+    {
+      "type": "range",
+      "id": "chip_padding_vertical",
+      "label": "Vertical padding",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "chip_padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "chip_font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "chip_font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "range",
+      "id": "chip_border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Default state"
+    },
+    {
+      "type": "color",
+      "id": "chip_background",
+      "label": "Background",
+      "default": "#f3f5f2"
+    },
+    {
+      "type": "color",
+      "id": "chip_text_color",
+      "label": "Text",
+      "default": "#262626"
+    },
+    {
+      "type": "color",
+      "id": "chip_border_color",
+      "label": "Border",
+      "default": "#f3f5f2"
+    },
+    {
+      "type": "header",
+      "content": "Hover state"
+    },
+    {
+      "type": "color",
+      "id": "chip_hover_background",
+      "label": "Background",
+      "default": "#e5e8e3"
+    },
+    {
+      "type": "color",
+      "id": "chip_hover_text_color",
+      "label": "Text",
+      "default": "#262626"
+    },
+    {
+      "type": "color",
+      "id": "chip_hover_border_color",
+      "label": "Border",
+      "default": "#e5e8e3"
+    },
+    {
+      "type": "header",
+      "content": "Active state"
+    },
+    {
+      "type": "color",
+      "id": "chip_active_background",
+      "label": "Background",
+      "default": "#4a5344"
+    },
+    {
+      "type": "color",
+      "id": "chip_active_text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "chip_active_border_color",
+      "label": "Border",
+      "default": "#4a5344"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection filter bar"
+    }
+  ]
+}
+{% endschema %}

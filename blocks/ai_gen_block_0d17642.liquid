@@ -1,0 +1,525 @@
+{% doc %}
+  @prompt
+    Create a custom Shopify section named "Custom Hero Banner Advanced".
+    
+    GOAL:
+    Match a premium ecommerce hero section with background image, styled heading, subtitle, and 3 rounded buttons.
+    
+    ----------------------------------------
+    
+    1. LAYOUT:
+    - Full width section
+    - Background image (cover, center)
+    - Height: ~500–650px desktop, responsive on mobile
+    - Content centered both vertically and horizontally
+    
+    ----------------------------------------
+    
+    2. CONTENT STRUCTURE:
+    
+    A. Heading:
+    - Dynamic from section.settings.title
+    - Split into 2 parts:
+      - First word → green color (#2fb36d)
+      - Remaining words → blue color (#3b6db3)
+    - Font: Montserrat
+    - Large size, elegant spacing
+    
+    Example:
+    All Products → "All" green + "Products" blue
+    
+    ----------------------------------------
+    
+    B. Subtitle:
+    - Below heading
+    - Max width ~600px
+    - Center aligned
+    - Slightly muted color (#555)
+    
+    ----------------------------------------
+    
+    C. Buttons (IMPORTANT — 3 buttons):
+    - Display exactly 3 buttons in one row (desktop)
+    - Rounded pill style (border-radius: 999px)
+    - Semi-transparent background (glass effect)
+    - Border: subtle white or light gray
+    - Text centered
+    
+    Buttons content dynamic:
+    - Button 1 text + link
+    - Button 2 text + link
+    - Button 3 text + link
+    
+    ----------------------------------------
+    
+    3. STYLING:
+    
+    - Add dark overlay on background:
+      rgba(0,0,0,0.3–0.5) for readability
+    
+    - Buttons:
+      background: rgba(255,255,255,0.15)
+      backdrop-filter: blur(6px)
+      hover: slightly brighter
+    
+    - Spacing:
+      gap between buttons: 12–16px
+    
+    ----------------------------------------
+    
+    4. RESPONSIVE:
+    
+    - Mobile:
+      - Buttons stack vertically OR horizontal scroll
+      - Reduce heading size
+      - Maintain center alignment
+    
+    ----------------------------------------
+    
+    5. SCHEMA:
+    
+    Section settings:
+    - background_image (image_picker)
+    - title (text)
+    - subtitle (textarea)
+    
+    Buttons:
+    - button_1_text, button_1_link
+    - button_2_text, button_2_link
+    - button_3_text, button_3_link
+    
+    ----------------------------------------
+    
+    6. CLASS NAMING:
+    
+    Use clean classes:
+    - .hero-banner
+    - .hero-overlay
+    - .hero-content
+    - .hero-title
+    - .hero-subtitle
+    - .hero-buttons
+    - .hero-button
+    
+    ----------------------------------------
+    
+    7. PERFORMANCE:
+    
+    - No inline styles
+    - Use CSS classes
+    - Use flexbox for layout
+    
+    ----------------------------------------
+    
+    GOAL RESULT:
+    A clean, modern hero banner matching premium Shopify stores with:
+    ✔ Split colored heading
+    ✔ 3 rounded glass buttons
+    ✔ Background image with overlay
+    ✔ Fully responsive layout, in Heading half of part should be Italic "Products" text and weight of heading should be 700
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .hero-banner-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    height: {{ block.settings.hero_height }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-banner-{{ ai_gen_id }}::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('{{ block.settings.background_image | image_url: width: 2000 }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+
+  .hero-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, {{ block.settings.overlay_opacity }});
+    z-index: 2;
+  }
+
+  .hero-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 900px;
+    padding: 40px 20px;
+  }
+
+  .hero-title-{{ ai_gen_id }} {
+    font-family: 'Montserrat', sans-serif;
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-title-{{ ai_gen_id }} .hero-title-first-{{ ai_gen_id }} {
+    color: {{ block.settings.first_word_color }};
+    font-style: normal;
+  }
+
+  .hero-title-{{ ai_gen_id }} .hero-title-rest-{{ ai_gen_id }} {
+    color: {{ block.settings.rest_words_color }};
+    font-style: italic;
+  }
+
+  .hero-subtitle-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subtitle_size }}px;
+    color: {{ block.settings.subtitle_color }};
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  .hero-buttons-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: {{ block.settings.button_gap }}px;
+    flex-wrap: wrap;
+  }
+
+  .hero-button-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background-color: rgba(255, 255, 255, {{ block.settings.button_bg_opacity }});
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid {{ block.settings.button_border_color }};
+    border-radius: 999px;
+    color: {{ block.settings.button_text_color }};
+    font-size: {{ block.settings.button_font_size }}px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .hero-button-{{ ai_gen_id }}:hover {
+    background-color: rgba(255, 255, 255, {{ block.settings.button_hover_bg_opacity }});
+    transform: translateY(-2px);
+  }
+
+  @media screen and (max-width: 749px) {
+    .hero-banner-{{ ai_gen_id }} {
+      min-height: 400px;
+      height: {{ block.settings.mobile_hero_height }}px;
+    }
+
+    .hero-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.6 }}px;
+    }
+
+    .hero-subtitle-{{ ai_gen_id }} {
+      font-size: {{ block.settings.subtitle_size | times: 0.9 }}px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons-{{ ai_gen_id }} {
+      flex-direction: {{ block.settings.mobile_button_layout }};
+      gap: 12px;
+    }
+
+    .hero-button-{{ ai_gen_id }} {
+      padding: 12px 24px;
+      font-size: {{ block.settings.button_font_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="hero-banner-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="hero-overlay-{{ ai_gen_id }}"></div>
+  
+  <div class="hero-content-{{ ai_gen_id }}">
+    {% if block.settings.title != blank %}
+      <h1 class="hero-title-{{ ai_gen_id }}">
+        {% assign title_words = block.settings.title | split: ' ' %}
+        {% if title_words.size > 0 %}
+          <span class="hero-title-first-{{ ai_gen_id }}">{{ title_words[0] }}</span>
+          {% if title_words.size > 1 %}
+            <span class="hero-title-rest-{{ ai_gen_id }}">
+              {% for word in title_words offset: 1 %}
+                {{ word }}{% unless forloop.last %} {% endunless %}
+              {% endfor %}
+            </span>
+          {% endif %}
+        {% endif %}
+      </h1>
+    {% endif %}
+
+    {% if block.settings.subtitle != blank %}
+      <p class="hero-subtitle-{{ ai_gen_id }}">{{ block.settings.subtitle }}</p>
+    {% endif %}
+
+    <div class="hero-buttons-{{ ai_gen_id }}">
+      {% if block.settings.button_1_text != blank %}
+        <a href="{{ block.settings.button_1_link }}" class="hero-button-{{ ai_gen_id }}">
+          {{ block.settings.button_1_text }}
+        </a>
+      {% endif %}
+
+      {% if block.settings.button_2_text != blank %}
+        <a href="{{ block.settings.button_2_link }}" class="hero-button-{{ ai_gen_id }}">
+          {{ block.settings.button_2_text }}
+        </a>
+      {% endif %}
+
+      {% if block.settings.button_3_text != blank %}
+        <a href="{{ block.settings.button_3_link }}" class="hero-button-{{ ai_gen_id }}">
+          {{ block.settings.button_3_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero banner advanced",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "hero_height",
+      "min": 400,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Desktop height",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "mobile_hero_height",
+      "min": 300,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "label": "Mobile height",
+      "default": 450
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Overlay opacity",
+      "default": 0.4
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading text",
+      "default": "All Products"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "first_word_color",
+      "label": "First word color",
+      "default": "#2fb36d"
+    },
+    {
+      "type": "color",
+      "id": "rest_words_color",
+      "label": "Remaining words color",
+      "default": "#3b6db3"
+    },
+    {
+      "type": "header",
+      "content": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle text",
+      "default": "Discover our premium collection of products"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "min": 12,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Subtitle size",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Button 3"
+    },
+    {
+      "type": "text",
+      "id": "button_3_text",
+      "label": "Text",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "button_3_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Button style"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_gap",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap between buttons",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_bg_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Background opacity",
+      "default": 0.2
+    },
+    {
+      "type": "range",
+      "id": "button_hover_bg_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Hover background opacity",
+      "default": 0.3
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Border color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_button_layout",
+      "label": "Button layout",
+      "options": [
+        {
+          "value": "column",
+          "label": "Stack vertically"
+        },
+        {
+          "value": "row",
+          "label": "Horizontal scroll"
+        }
+      ],
+      "default": "column"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero banner advanced"
+    }
+  ]
+}
+{% endschema %}
