@@ -54,6 +54,16 @@
   text-decoration: underline;
 }
 
+.tittle-wrap{
+  margin: 5vh 0 0 0;
+} 
+
+.title {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 700;
+}
+
 .wbs-pck__rte p {
   margin-bottom: 0.8em;
 }
@@ -996,6 +1006,18 @@ https://flickity.metafizzy.co
   {%- if section.settings.anchor_id != blank -%}
     <div id="{{ section.settings.anchor_id | remove: '#' | handleize }}" class="wbs-pck__anchor-id" style="height: 0; overflow: hidden;"></div>
   {%- endif -%}
+  {% assign words = section.settings.title | split: ' ' %}
+  <div class="tittle-wrap">
+    <h2 class="title">
+      {% for word in words %}
+        {% if forloop.last %}
+          <em class="blue">{{ word }}</em>
+        {% else %}
+          <span class="green">{{ word }}</span>
+        {% endif %}
+      {% endfor %}
+    </h2>
+  </div>
   <div class="wbs-pck__sizer">
     <div class="wbs-pck__flex wbs-pck__flex--main">
       <div class="wbs-pck__videos">
@@ -1083,6 +1105,12 @@ https://flickity.metafizzy.co
   "name": "Video carousel",
   "class": "DP__video-carousel",
   "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "The Social Shelf"
+    },
     {
       "type": "paragraph",
       "content": "Add a minumum of 5 videos for best results"
