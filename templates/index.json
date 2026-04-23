@@ -189,12 +189,14 @@
         },
         "featured_collection5": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "gut-health"
           }
         },
         "featured_collection_XEcNgF": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "weight-management"
           }
@@ -210,6 +212,7 @@
       "custom_css": [],
       "settings": {
         "title": "<strong>Shop by </strong><em><strong>Category</strong></em>",
+        "subtitle": "Each formula crafted for a specific wellness need — find yours.",
         "heading_size": "h1",
         "image_ratio": "adapt",
         "columns_desktop": 3,
@@ -224,13 +227,15 @@
     "stack_smarter_new": {
       "type": "stack-smarter",
       "settings": {
+        "background_image": "shopify://shop_images/empty-road-dark-atmosphere_2.png",
         "heading": "Stack Smarter, <em>Feel Better.</em>",
         "description": "Our synergy blends are crafted to work together — so you can build the optimal stack for gut health, energy, immunity, and beyond.",
         "checklist": "Clinically researched ingredients|UK-made in GMP-certified facilities|100% natural, no artificial fillers|Designed for synergy — better together",
         "button_label": "BUILD YOUR STACK",
         "button_link": "shopify://collections/all",
-        "accent_color": "#2d7a3a",
-        "accent_hover": "#236830"
+        "accent_color": "#e8b86d",
+        "accent_hover": "#ec0000",
+        "product_image": "shopify://shop_images/33_3.png"
       }
     },
     "complete_routine_new": {

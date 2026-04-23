@@ -26,10 +26,10 @@
     inset: 0;
     background: linear-gradient(
       90deg,
-      rgba(0, 15, 5, 0.82) 0%,
-      rgba(0, 20, 8, 0.7) 45%,
-      rgba(0, 15, 5, 0.5) 70%,
-      rgba(0, 10, 3, 0.35) 100%
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(0, 0, 0, 0.85) 40%,
+      rgba(0, 0, 0, 0.65) 65%,
+      rgba(0, 0, 0, 0.4) 100%
     );
     z-index: 1;
   }
@@ -38,7 +38,7 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 1200px;
+    max-width: 95vw;
     margin: 0 auto;
     padding: 60px 5%;
     display: grid;
@@ -52,9 +52,9 @@
   }
 
   #stack-smarter-{{ section.id }} .stack__heading {
-    font-family: 'DM Serif Display', 'Georgia', serif;
+    font-family: "Montserrat", sans-serif;
     font-size: clamp(26px, 3.5vw, 40px);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.2;
     margin: 0 0 16px 0;
     color: #ffffff;
@@ -63,7 +63,8 @@
   #stack-smarter-{{ section.id }} .stack__heading em,
   #stack-smarter-{{ section.id }} .stack__heading i {
     color: {{ section.settings.accent_color }};
-    font-style: italic;
+    font-style: normal;
+    font-weight: 700;
   }
 
   #stack-smarter-{{ section.id }} .stack__description {
@@ -79,23 +80,23 @@
     margin: 0 0 28px 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
   }
 
   #stack-smarter-{{ section.id }} .stack__checklist li {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 14px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.9);
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   #stack-smarter-{{ section.id }} .stack__check-icon {
     width: 20px;
     height: 20px;
     min-width: 20px;
-    background: {{ section.settings.accent_color }};
+    background: transparent;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -105,23 +106,29 @@
   #stack-smarter-{{ section.id }} .stack__check-icon svg {
     width: 12px;
     height: 12px;
-    fill: #ffffff;
+    fill: #3bd16f;
   }
 
   #stack-smarter-{{ section.id }} .stack__cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 14px 32px;
+    padding: 12px 28px;
     background: {{ section.settings.accent_color }};
-    color: #ffffff;
+    color: #000;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 24px;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.04em;
+    box-shadow: 0 8px 25px rgba(214,168,95,0.4);
+  }
+
+  .stack__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(214,168,95,0.6);
   }
 
   #stack-smarter-{{ section.id }} .stack__cta:hover {
@@ -142,6 +149,34 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+
+  #stack-smarter-{{ section.id }} .stack__badge {
+    position: relative;
+    margin-top: 16px;
+    background: linear-gradient(135deg, #d6a85f, #b88a3c);
+    color: #000;
+    font-size: 12px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    display: inline-block;
+  }
+
+  #stack-smarter-{{ section.id }} .stack__label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: #d6a85f;
+    margin-bottom: 12px;
+    background: transparent;
+    border: 1px solid #d6a85f;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
   #stack-smarter-{{ section.id }} .stack__product-image img {
@@ -182,6 +217,7 @@
 
   <div class="stack__content">
     <div class="stack__text-col">
+      <p class="stack__label">LIMITED OFFER · SAVE UP TO 30%</p>
       {%- if section.settings.heading != blank -%}
         <h2 class="stack__heading">{{ section.settings.heading }}</h2>
       {%- endif -%}
@@ -214,8 +250,11 @@
 
     <div class="stack__image-col">
       {%- if section.settings.product_image != blank -%}
-        <div class="stack__product-image">
-          {{ section.settings.product_image | image_url: width: 800 | image_tag: sizes: '(min-width: 768px) 320px, 240px', widths: '240, 320, 480, 640, 800' }}
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <div class="stack__product-image">
+            {{ section.settings.product_image | image_url: width: 800 | image_tag: sizes: '(min-width: 768px) 320px, 240px', widths: '240, 320, 480, 640, 800' }}
+          </div>
+          <div class="stack__badge">MOST POPULAR</div>
         </div>
       {%- endif -%}
     </div>
@@ -246,19 +285,19 @@
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Our synergy blends are crafted to work together — so you can build the optimal stack for gut health, energy, immunity, and beyond."
+      "default": "Our curated bundles are built for real results. Clinically dosed formulas working together for compounded gut, immune & energy support."
     },
     {
       "type": "textarea",
       "id": "checklist",
       "label": "Checklist items (separate with |)",
-      "default": "Clinically researched ingredients|UK-made in GMP-certified facilities|100% natural, no artificial fillers|Designed for synergy — better together"
+      "default": "Free UK Delivery|GMP Certified & UK Made|30-Day Money-Back Guarantee"
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Button label",
-      "default": "BUILD YOUR STACK"
+      "default": "YOUR HEALTH➔"
     },
     {
       "type": "url",
@@ -269,13 +308,13 @@
       "type": "color",
       "id": "accent_color",
       "label": "Accent color",
-      "default": "#2d7a3a"
+      "default": "#d6a85f"
     },
     {
       "type": "color",
       "id": "accent_hover",
       "label": "Accent hover color",
-      "default": "#236830"
+      "default": "#b88a3c"
     },
     {
       "type": "image_picker",
