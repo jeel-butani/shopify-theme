@@ -52,25 +52,49 @@
   margin: 0 auto;
 }
 
+/* ── Section heading — green + blue italic (Montserrat) ── */
 #WP--{{ section.id }} .wbs__heading {
-  text-transform: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(30px, 4vw, 50px);
+  font-weight: 700;
+  letter-spacing: 0.5px;
   text-align: center;
-  margin: 0 0 1em;
+  margin: 0 0 12px;
+  line-height: 1.15;
   color: {{ section.settings.heading_color }};
-  line-height: calc(3px + 2ex + 3px);
-  font-size: calc(var(--WP-g-heading-size, var(--WP-heading-size, 35px)) * {{ section.settings.text_size | times: 0.01 }});
-  {%- if section.settings.override_theme_font != blank -%}
-  font-family: var(--heading-font);
-  font-weight: var(--heading-font-weight);
-  font-style: var(--heading-font-style);
-  {%- endif -%}
+  text-transform: none;
 }
 
-{%- if section.settings.desktop_display == 'scroll' -%}
-  #WP--{{ section.id }} .wbs__sizer {
-    {% comment %} margin-right: 0; {% endcomment %}
-  }
+#WP--{{ section.id }} .wbs__heading .heading-main {
+  color: #307e3d;
+  font-style: normal;
+}
 
+#WP--{{ section.id }} .wbs__heading .heading-accent {
+  color: #3b6db3;
+  font-style: italic;
+}
+
+/* Fallback for inline em/i tags */
+#WP--{{ section.id }} .wbs__heading em,
+#WP--{{ section.id }} .wbs__heading i {
+  color: #3b6db3;
+  font-style: italic;
+}
+
+/* ── Subtitle ── */
+#WP--{{ section.id }} .wbs__subtitle {
+  text-align: center;
+  font-size: 15px;
+  color: {{ section.settings.heading_color }};
+  opacity: 0.65;
+  margin: 0 auto 2em;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* ── Wrapper ── */
+{%- if section.settings.desktop_display == 'scroll' -%}
   #WP--{{ section.id }} .wbs__testimonials-wrapper {
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
@@ -84,9 +108,6 @@
   #WP--{{ section.id }} .wbs__flex-item {
     min-width: calc(100%/{{ section.settings.per_row }} + 1vw);
     scroll-snap-align: start;
-    position: relative;
-    margin-bottom: 20px;
-    border-radius: {{ section.settings.border_radius }}px;
   }
 
   #WP--{{ section.id }} ::-webkit-scrollbar {
@@ -95,25 +116,18 @@
     width: 7px;
     height: 3px;
   }
-
-  #WP--{{ section.id }} ::-webkit-scrollbar-track,
-   ::-webkit-scrollbar-corner { /* Background */
-    background: #D8D8D8;
-  }
-
+  #WP--{{ section.id }} ::-webkit-scrollbar-track { background: #D8D8D8; }
   #WP--{{ section.id }} ::-webkit-scrollbar-thumb {
-    border-radius: 0px;
-    background-color: #000000;
+    border-radius: 0;
+    background-color: #000;
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
   }
 {%- else -%}
   #WP--{{ section.id }} .wbs__testimonials-wrapper {
     flex-wrap: wrap;
   }
-
   #WP--{{ section.id }} .wbs__flex-item {
     flex: 0 0 calc(100%/{{ section.settings.per_row }} - 20px);
-    border-radius: {{ section.settings.border_radius }}px;
   }
 {%- endif -%}
 
@@ -121,25 +135,138 @@
   justify-content: flex-start;
   gap: 20px;
   display: flex;
+  /* Extra top padding so avatar circle overlaps cleanly */
+  padding-top: 50px;
 }
 
+/* ── Individual card ── */
 #WP--{{ section.id }} .wbs__flex-item {
   height: auto;
-  border: {{ section.settings.border_width }}px solid {{ section.settings.border_color }};
+  /* Remove hard border, use soft shadow instead */
+  border: 1px solid #e5e7e2;
+  border-radius: 16px;
   background: {{ section.settings.text_background_color }};
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  position: relative;
+  /* Space at top for the avatar that overlaps */
+  padding-top: 56px;
+  margin-top: 0;
 }
 
+/* ── Avatar circle — large, greyscale gradient, overlapping card ── */
+#WP--{{ section.id }} .wbs__initial-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0;
+  /* Greyscale gradient to match Image 2 */
+  background: linear-gradient(145deg, #a0a8a0, #6b766b);
+  /* Float above card */
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-shrink: 0;
+  /* Subtle border to lift from bg */
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  z-index: 2;
+}
+
+/* ── Inner content ── */
 #WP--{{ section.id }} .wbs__inner-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 2em;
+  padding: 12px 20px 24px;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
+/* ── Customer full name ── */
+#WP--{{ section.id }} .wbs__customer-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 3px;
+  line-height: 1.3;
+}
+
+/* ── Verified purchase line ── */
+#WP--{{ section.id }} .wbs__verified-label {
+  font-size: 12px;
+  color: #888;
+  font-weight: 400;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+/* ── Stars ── */
+#WP--{{ section.id }} .wbs__stars {
+  display: flex;
+  justify-content: center;
+  width: min(80%, 160px);
+  margin-bottom: 14px;
+}
+
+#WP--{{ section.id }} .wbs__star {
+  flex: 1 0 auto;
+  max-width: 26px;
+}
+
+#WP--{{ section.id }} .wbs__star svg path {
+  fill: {{ section.settings.star_color }};
+}
+
+/* ── Review text — italic, smaller, left-aligned ── */
+#WP--{{ section.id }} .wbs__text {
+  position: relative;
+  text-align: left;
+  margin: 0;
+  font-style: italic;
+  color: {{ section.settings.text_color }};
+  font-size: 13px;
+  line-height: 1.65;
+  font-weight: 400;
+  {%- if section.settings.override_theme_font != blank -%}
+  font-family: var(--main-font);
+  font-weight: var(--main-font-weight);
+  {%- endif -%}
+}
+
+#WP--{{ section.id }} .wbs__text p {
+  margin: 0;
+}
+
+/* ── Link ── */
+#WP--{{ section.id }} .wbs__link {
+  text-align: center;
+  margin-top: 14px;
+  font-weight: normal;
+  text-decoration: underline;
+  color: {{ section.settings.text_color }};
+  font-size: 13px;
+  {%- if section.settings.override_theme_font != blank -%}
+  font-family: var(--main-font);
+  font-weight: var(--main-font-weight);
+  font-style: var(--main-font-style);
+  {%- endif -%}
+}
+
+#WP--{{ section.id }} .wbs__link:not([href]) {
+  text-decoration: none;
+}
+
+/* ── Video elements (kept functional) ── */
 #WP--{{ section.id }} .wbs__youtube-video {
   aspect-ratio: 16 / 9;
   width: 100%;
@@ -152,7 +279,6 @@
   height: auto;
   display: block;
 }
-
 
 #WP--{{ section.id }} .wbs__video-inner-wrapper {
   position: relative;
@@ -180,12 +306,8 @@
   fill: {{ section.settings.play_button_color }};
 }
 
-
-#WP--{{ section.id }} .wbs__video-wrapper:hover {
-  border-color: red;
-}
 #WP--{{ section.id }} .wbs__video-wrapper:hover .wbs__pause-button.wbs__playing {
-  opacity: 100;
+  opacity: 1;
   pointer-events: initial;
 }
 
@@ -198,97 +320,7 @@
   opacity: 0;
 }
 
-#WP--{{ section.id }} .wbs__stars {
-  display: flex;
-  justify-content: center;
-  width: min(80%, 300px);
-}
-
-#WP--{{ section.id }} .wbs__star {
-  flex: 1 0 auto;
-  max-width: 30px;
-}
-
-#WP--{{ section.id }} .wbs__star svg path {
-  fill: {{ section.settings.star_color }};
-}
-
-#WP--{{ section.id }} .wbs__text {
-  position: relative;
-  text-align: center;
-  margin: 0;
-  margin-bottom: 20px;
-  font-weight: normal;
-  color: {{ section.settings.text_color }};
-  line-height: calc(3px + 2ex + 3px);
-  font-size: calc(var(--WP-g-body-size, var(--WP-body-size, 18px)) * {{ section.settings.text_size | times: 0.01 }});
-  {%- if section.settings.override_theme_font != blank -%}
-  font-family: var(--main-font);
-  font-weight: var(--main-font-weight);
-  font-style: var(--main-font-style);
-  {%- endif -%}
-}
-
-#WP--{{ section.id }} .wbs__initial-circle {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 14px;
-  flex-shrink: 0;
-  letter-spacing: 0;
-}
-
-#WP--{{ section.id }} .wbs__subtitle {
-  text-align: center;
-  font-size: 15px;
-  color: {{ section.settings.heading_color }};
-  opacity: 0.65;
-  margin: -0.5em 0 1.5em;
-  line-height: 1.5;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#WP--{{ section.id }} .wbs__image {
-  width: {{ section.settings.image_size }}%;
-  overflow: hidden;
-}
-
-#WP--{{ section.id }} .wbs__image--circle {
-  border-radius: 50%;
-}
-
-#WP--{{ section.id }} .wbs__image--rounded {
-  border-radius: 5px;
-}
-
-#WP--{{ section.id }} .wbs__link {
-  text-align: center;
-  margin-top: 20px;
-  font-weight: normal;
-  text-decoration: underline;
-  color: {{ section.settings.text_color }};
-  line-height: calc(3px + 3ex + 3px);
-  font-size: calc(var(--WP-g-body-size, var(--WP-body-size, 18px)) * {{ section.settings.text_size | times: 0.01 }});
-  {%- if section.settings.override_theme_font != blank -%}
-  font-family: var(--main-font);
-  font-weight: var(--main-font-weight);
-  font-style: var(--main-font-style);
-  {%- endif -%}
-}
-
-#WP--{{ section.id }} .wbs__link:not([href]) {
-  text-decoration: none;
-}
-
-/* Animation */
+/* ── Animation ── */
 {%- if section.settings.animation != 'none' -%}
   #WP--{{ section.id }}.wbs__animation-applied [style*="--wbs-animate"] {
     animation-name: wbs__animation--{{ section.settings.animation }};
@@ -297,7 +329,7 @@
   #WP--{{ section.id }} [style*="--wbs-animate"] {
     opacity: 1;
   }
-{% endif %}
+{%- endif -%}
 
 {%- if section.settings.custom_css != blank -%}
   {%- assign custom_section_declarations = section.settings.custom_css | split: '}' -%}
@@ -308,7 +340,7 @@
   {%- endfor -%}
 {%- endif -%}
 
-/* Landscape phone to portrait tablet */
+/* ── Tablet ── */
 @media (max-width: 767px) {
   #WP--{{ section.id }} .wbs__sizer {
     width: 100%;
@@ -326,50 +358,42 @@
       padding-left: 20px;
       margin-left: 0;
     }
-
     #WP--{{ section.id }} .wbs__flex-item {
       min-width: 75vw;
       scroll-snap-align: start;
       position: relative;
       margin-bottom: 20px;
     }
-
     #WP--{{ section.id }} .wbs__flex-item:first-child {
       margin-left: 20px;
     }
-
     #WP--{{ section.id }} ::-webkit-scrollbar {
       -webkit-appearance: none;
       background-color: rgba(0,0,0,0);
       width: 7px;
       height: 3px;
     }
-
-    #WP--{{ section.id }} ::-webkit-scrollbar-track,
-     ::-webkit-scrollbar-corner { /* Background */
-      background: #D8D8D8;
-    }
-
+    #WP--{{ section.id }} ::-webkit-scrollbar-track { background: #D8D8D8; }
     #WP--{{ section.id }} ::-webkit-scrollbar-thumb {
-      border-radius: 0px;
-      background-color: #000000;
+      border-radius: 0;
+      background-color: #000;
       -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
     }
   {%- else -%}
     #WP--{{ section.id }} .wbs__testimonials-wrapper {
       margin: 0 20px;
     }
-
     #WP--{{ section.id }} .wbs__flex-item {
       min-width: 100%;
     }
   {%- endif -%}
 
   #WP--{{ section.id }} .wbs__inner-content {
-    padding: 2em 2.5em;
+    padding: 12px 16px 20px;
   }
 }
-/* Landscape phones and down */
+
+/* ── Mobile ── */
 @media (max-width: 480px) {
   #WP--{{ section.id }} {
     margin-top: {{ section.settings.outer_margin | divided_by: 2 }}px;
@@ -389,106 +413,140 @@
   {%- endif -%}
 }
 
-
-.wbs__image__wrapper:not(.wbs__image__wrapper--contain) svg{
+.wbs__image__wrapper:not(.wbs__image__wrapper--contain) svg {
   width: inherit;
-    height: inherit;
+  height: inherit;
 }
 
-.wbs__image__wrapper{
+.wbs__image__wrapper {
   position: relative;
   display: grid;
   margin: 0;
 }
 
-  .wbs__image__wrapper img{
-    object-fit: cover;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
+.wbs__image__wrapper img {
+  object-fit: cover;
+  top: 0; right: 0; bottom: 0; left: 0;
+  width: 100%; height: 100%;
+  position: absolute;
+}
 </style>
 
 {%- comment -%} HTML {%- endcomment -%}
 <section id="WP--{{ section.id }}" class="WP--{{ section.id }} wbs__testimonials-video wbs__section" {%- if section.settings.animation != 'none' -%}data-animated-section{%- endif -%}>
   <div class="wbs__sizer">
+
+    {%- comment -%} Heading: split into green main + blue italic accent {%- endcomment -%}
     {%- if section.settings.title != blank -%}
-      <h2 class="wbs__heading">{{ section.settings.title }}</h2>
+      {%- assign title_words = section.settings.title | split: ' ' -%}
+      {%- assign word_count = title_words | size -%}
+      {%- assign last_two_index = word_count | minus: 2 -%}
+      <h2 class="wbs__heading">
+        {%- for word in title_words -%}
+          {%- if forloop.index0 < last_two_index -%}
+            <span class="heading-main">{{ word }} </span>
+          {%- else -%}
+            <em class="heading-accent">{{ word }} </em>
+          {%- endif -%}
+        {%- endfor -%}
+      </h2>
     {%- endif -%}
+
     {%- if section.settings.subtitle != blank -%}
       <p class="wbs__subtitle">{{ section.settings.subtitle }}</p>
     {%- endif -%}
+
     <div class="wbs__testimonials-wrapper wbs__flex">
       {%- for block in section.blocks -%}
         <style>
           .wbs__block-{{ block.id }} .wbs__hosted-video {
-            {%- if block.settings.star_rating != -1 or block.settings.title != blank or block.settings.image != blank or block.settings.link_label != blank %}
+            {%- if block.settings.star_rating != -1 or block.settings.title != blank or block.settings.customer_full_name != blank or block.settings.link_label != blank %}
               border-radius: {{ inner_border_radius }}px {{ inner_border_radius }}px 0 0;
             {% else %}
               border-radius: {{ inner_border_radius }}px;
             {% endif %}
           }
         </style>
+
         <div class="wbs__flex-item wbs__item wbs__block-{{ block.id }}" {{ block.shopify_attributes }} style="--wbs-animate: {{ forloop.index }};">
-          <div class="wbs__video-wrapper">
-            {%- if block.settings.youtube_video != blank %}
-              <iframe
-                class="wbs__youtube-video"
-                src="https://www.youtube.com/embed/{{ block.settings.youtube_video.id }}"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-                allowfullscreen></iframe>
-            {% elsif block.settings.html5_video != blank %}
-              {%- assign video = block.settings.html5_video -%}
-              <div class="wbs__video-inner-wrapper">
-                <video class="wbs__hosted-video" width="{{ video.aspect_ratio | times: 100 }}" height="100" {% if section.settings.video_style == 'control_bar' %}controls{% endif %} playsinline loading="lazy" poster="{{ video.preview_image | image_url: width: 2800 }}">
-                  {%- for source in video.sources -%}
-                    <source src="{{ source.url }}">
-                  {%- endfor -%}
-                </video>
-                {% if section.settings.video_style == 'play_button'  %}
-                  <svg id="wbs__play-button" class="wbs__play-button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"/></svg>
-                  <svg id="wbs__pause-button" class="wbs__pause-button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M11 22h-4v-20h4v20zm6-20h-4v20h4v-20z"/></svg>
-                {% endif %}
-              </div>
-            {% endif %}
-          </div>
-          {%- if block.settings.star_rating != -1 or block.settings.title != blank or block.settings.image != blank or block.settings.link_label != blank %}
-            <div class="wbs__inner-content">
-              {%- if block.settings.customer_initial != blank -%}
-                <div class="wbs__initial-circle" style="background: {{ block.settings.initial_color | default: '#2d7a3a' }};">
-                  {{ block.settings.customer_initial }}
+
+          {%- comment -%} Video (if present) {%- endcomment -%}
+          {%- if block.settings.youtube_video != blank or block.settings.html5_video != blank -%}
+            <div class="wbs__video-wrapper">
+              {%- if block.settings.youtube_video != blank %}
+                <iframe
+                  class="wbs__youtube-video"
+                  src="https://www.youtube.com/embed/{{ block.settings.youtube_video.id }}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+                  allowfullscreen></iframe>
+              {% elsif block.settings.html5_video != blank %}
+                {%- assign video = block.settings.html5_video -%}
+                <div class="wbs__video-inner-wrapper">
+                  <video class="wbs__hosted-video" width="{{ video.aspect_ratio | times: 100 }}" height="100" {% if section.settings.video_style == 'control_bar' %}controls{% endif %} playsinline loading="lazy" poster="{{ video.preview_image | image_url: width: 2800 }}">
+                    {%- for source in video.sources -%}
+                      <source src="{{ source.url }}">
+                    {%- endfor -%}
+                  </video>
+                  {% if section.settings.video_style == 'play_button' %}
+                    <svg id="wbs__play-button" class="wbs__play-button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"/></svg>
+                    <svg id="wbs__pause-button" class="wbs__pause-button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M11 22h-4v-20h4v20zm6-20h-4v20h4v-20z"/></svg>
+                  {% endif %}
                 </div>
-              {%- endif -%}
-              {%- if block.settings.star_rating != -1 -%}
-                <div class="wbs__stars">
-                  {%- for i in (1..5) -%}
-                    <div class="wbs__star">
-                      {%- if i <= block.settings.star_rating -%}
-                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.2 18a.8.8 0 01-.792-.914l.743-5.203-2.917-2.917a.8.8 0 01.434-1.355l4.398-.733 2.218-4.435a.8.8 0 011.435.008l2.123 4.361 4.498.801a.8.8 0 01.425 1.353l-2.917 2.917.744 5.203a.8.8 0 01-1.154.828l-4.382-2.22-4.502 2.223A.792.792 0 015.2 18z" fill="#5C5F62"/></svg>
-                      {%- else -%}
-                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.71 15.116l3.357-1.658.892.452 2.327 1.178-.56-3.912.708-.707 1.29-1.29-3.235-.576-.445-.915-1.059-2.176L8.4 8.683l-1.005.168-2.098.35 1.975 1.975-.141.99-.422 2.95zM5.2 18a.8.8 0 01-.792-.914l.743-5.203-2.917-2.917a.8.8 0 01.434-1.355l4.398-.733 2.218-4.435a.8.8 0 011.435.008l2.123 4.361 4.498.801a.8.8 0 01.425 1.353l-2.917 2.917.744 5.203a.8.8 0 01-1.154.828l-4.382-2.22-4.502 2.223A.792.792 0 015.2 18z" fill="#5C5F62"/></svg>
-                      {%- endif -%}
-                    </div>
-                  {%- endfor -%}
-                </div>
-              {%- endif -%}
-              {%- if block.settings.title != blank -%}
-                <div class="wbs__text wbs__rte">
-                  {{ block.settings.title }}
-                </div>
-              {%- endif -%}
-              {%- if block.settings.link_label != blank -%}
-                <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} {% if block.settings.external_link %}target="_blank"{% endif %} class="wbs__link">
-                  {{ block.settings.link_label }}
-                </a>
-              {%- endif -%}
+              {% endif %}
             </div>
           {%- endif -%}
+
+          {%- comment -%} Avatar circle — overlaps card top {%- endcomment -%}
+            {%- if block.settings.customer_initial != blank -%}
+              <div class="wbs__initial-circle">
+                {{ block.settings.customer_initial }}
+              </div>
+            {%- endif -%}
+
+          {%- comment -%} Card content {%- endcomment -%}
+          <div class="wbs__inner-content">
+
+            
+
+            {%- comment -%} Full name {%- endcomment -%}
+            {%- if block.settings.customer_full_name != blank -%}
+              <p class="wbs__customer-name">{{ block.settings.customer_full_name }}</p>
+            {%- endif -%}
+
+            {%- comment -%} Verified Purchase · London — static {%- endcomment -%}
+            <p class="wbs__verified-label">Verified Purchase · London</p>
+
+            {%- comment -%} Stars {%- endcomment -%}
+            {%- if block.settings.star_rating != -1 -%}
+              <div class="wbs__stars">
+                {%- for i in (1..5) -%}
+                  <div class="wbs__star">
+                    {%- if i <= block.settings.star_rating -%}
+                      <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.2 18a.8.8 0 01-.792-.914l.743-5.203-2.917-2.917a.8.8 0 01.434-1.355l4.398-.733 2.218-4.435a.8.8 0 011.435.008l2.123 4.361 4.498.801a.8.8 0 01.425 1.353l-2.917 2.917.744 5.203a.8.8 0 01-1.154.828l-4.382-2.22-4.502 2.223A.792.792 0 015.2 18z" fill="#5C5F62"/></svg>
+                    {%- else -%}
+                      <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.71 15.116l3.357-1.658.892.452 2.327 1.178-.56-3.912.708-.707 1.29-1.29-3.235-.576-.445-.915-1.059-2.176L8.4 8.683l-1.005.168-2.098.35 1.975 1.975-.141.99-.422 2.95zM5.2 18a.8.8 0 01-.792-.914l.743-5.203-2.917-2.917a.8.8 0 01.434-1.355l4.398-.733 2.218-4.435a.8.8 0 011.435.008l2.123 4.361 4.498.801a.8.8 0 01.425 1.353l-2.917 2.917.744 5.203a.8.8 0 01-1.154.828l-4.382-2.22-4.502 2.223A.792.792 0 015.2 18z" fill="#5C5F62"/></svg>
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+
+            {%- comment -%} Review text — italic {%- endcomment -%}
+            {%- if block.settings.title != blank -%}
+              <div class="wbs__text wbs__rte">
+                {{ block.settings.title }}
+              </div>
+            {%- endif -%}
+
+            {%- comment -%} Optional link {%- endcomment -%}
+            {%- if block.settings.link_label != blank -%}
+              <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} {% if block.settings.external_link %}target="_blank"{% endif %} class="wbs__link">
+                {{ block.settings.link_label }}
+              </a>
+            {%- endif -%}
+
+          </div>
         </div>
       {%- endfor -%}
     </div>
@@ -502,20 +560,22 @@
   "name": "Testimonials - video",
   "class": "WP__testimonials-video",
   "settings": [
-     {
-        "type": "paragraph",
-        "content": "Support WebSensePro by [Subscribing our Channel](https:\/\/youtube.com\/@websensepro?sub_confirmation=1)"
-      },
+    {
+      "type": "paragraph",
+      "content": "Support WebSensePro by [Subscribing our Channel](https://youtube.com/@websensepro?sub_confirmation=1)"
+    },
     {
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "Some kind words."
+      "default": "What Our Customers Say",
+      "info": "First words turn green, last two words turn blue italic automatically."
     },
     {
       "type": "text",
       "id": "subtitle",
-      "label": "Subtitle text"
+      "label": "Subtitle text",
+      "default": "Over 50,000 wellness journeys transformed. Here are just a few of their stories."
     },
     {
       "type": "range",
@@ -531,16 +591,10 @@
       "label": "Video style",
       "default": "control_bar",
       "options": [
-        {
-          "value": "control_bar",
-          "label": "Control bar"
-        },
-        {
-          "value": "play_button",
-          "label": "Play button"
-        }
+        { "value": "control_bar", "label": "Control bar" },
+        { "value": "play_button", "label": "Play button" }
       ],
-      "info": "Does not apply to Youtube or Vimeo videos."
+      "info": "Does not apply to Youtube videos."
     },
     {
       "type": "select",
@@ -548,14 +602,8 @@
       "label": "Display",
       "default": "grid",
       "options": [
-        {
-          "value": "scroll",
-          "label": "Scroll"
-        },
-        {
-          "value": "grid",
-          "label": "Grid"
-        }
+        { "value": "scroll", "label": "Scroll" },
+        { "value": "grid",   "label": "Grid" }
       ]
     },
     {
@@ -568,14 +616,8 @@
       "label": "Mobile display",
       "default": "scroll",
       "options": [
-        {
-          "value": "scroll",
-          "label": "Scroll"
-        },
-        {
-          "value": "grid",
-          "label": "Grid"
-        }
+        { "value": "scroll", "label": "Scroll" },
+        { "value": "grid",   "label": "Grid" }
       ]
     },
     {
@@ -599,22 +641,22 @@
     {
       "type": "color",
       "id": "heading_color",
-      "label": "Heading",
+      "label": "Heading fallback",
       "default": "#121212"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text",
-      "default": "#121212"
+      "label": "Review text",
+      "default": "#333333"
     },
     {
       "type": "color",
       "id": "star_color",
-      "label": "Testimonial star color",
-      "default": "#121212"
+      "label": "Star color",
+      "default": "#c8a951"
     },
-     {
+    {
       "type": "color",
       "id": "play_button_color",
       "label": "Play button color",
@@ -623,14 +665,14 @@
     {
       "type": "color",
       "id": "border_color",
-      "label": "Border color",
-      "default": "#121212"
+      "label": "Border color (unused — kept for compatibility)",
+      "default": "#eeeeee"
     },
     {
       "type": "range",
       "id": "border_width",
       "label": "Border width",
-      "default": 1,
+      "default": 0,
       "min": 0,
       "max": 12,
       "unit": "px"
@@ -638,11 +680,23 @@
     {
       "type": "range",
       "id": "border_radius",
-      "label": "Border radius",
-      "default": 0,
+      "label": "Card border radius",
+      "default": 16,
       "min": 0,
       "max": 50,
       "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "text_background_color",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#f1f2ec"
     },
     {
       "type": "header",
@@ -662,7 +716,7 @@
       "type": "text",
       "id": "max_width",
       "label": "Maximum width",
-      "placeholder": "eg. 1200px",
+      "placeholder": "eg. 1400px",
       "info": "Sets width constraint for content."
     },
     {
@@ -686,6 +740,39 @@
       "default": 0,
       "step": 5,
       "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_css",
+      "label": "CSS"
+    },
+    {
+      "type": "liquid",
+      "id": "mobile_custom_css",
+      "label": "Mobile CSS",
+      "info": "Applied on screens less than 480px."
+    },
+    {
+      "type": "checkbox",
+      "id": "override_theme_font",
+      "label": "Override default theme font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "serif"
+    },
+    {
+      "type": "font_picker",
+      "id": "main_font",
+      "label": "Text font",
+      "default": "sans-serif"
     }
   ],
   "blocks": [
@@ -694,15 +781,17 @@
       "name": "Testimonial",
       "settings": [
         {
-          "type": "video",
-          "id": "html5_video",
-          "label": "Hosted video"
+          "type": "text",
+          "id": "customer_initial",
+          "label": "Avatar initial (single letter)",
+          "info": "Shown in the large circle above the card. e.g. S",
+          "default": "S"
         },
         {
-          "type": "video_url",
-          "id": "youtube_video",
-          "label": "YouTube video (optional)",
-          "accept": ["youtube"]
+          "type": "text",
+          "id": "customer_full_name",
+          "label": "Customer full name",
+          "default": "Sarah Mitchell"
         },
         {
           "type": "range",
@@ -711,35 +800,40 @@
           "max": 5,
           "label": "Star rating",
           "default": 5,
-          "info": "Set to -1 to hide star rating"
+          "info": "Set to -1 to hide stars"
         },
         {
           "type": "richtext",
           "id": "title",
-          "label": "Testimonial",
-          "default": "<p>Best product ever! Highly recommend.</p>"
+          "label": "Review text",
+          "default": "<p>\"After 3 weeks on DigestiDetox, my bloating has completely disappeared. I feel lighter, more energetic, and my digestion is smoother than it's been in years.\"</p>"
+        },
+        {
+          "type": "video",
+          "id": "html5_video",
+          "label": "Hosted video (optional)"
+        },
+        {
+          "type": "video_url",
+          "id": "youtube_video",
+          "label": "YouTube video (optional)",
+          "accept": ["youtube"]
         },
         {
           "type": "text",
           "id": "link_label",
-          "label": "Link label"
+          "label": "Link label (optional)"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "Link"
+          "label": "Link (optional)"
         },
         {
-          "type": "text",
-          "id": "customer_initial",
-          "label": "Customer initial",
-          "info": "Single letter shown in colored circle"
-        },
-        {
-          "type": "color",
-          "id": "initial_color",
-          "label": "Initial circle color",
-          "default": "#2d7a3a"
+          "type": "checkbox",
+          "id": "external_link",
+          "label": "Open link in new tab",
+          "default": false
         }
       ]
     }
@@ -749,16 +843,40 @@
       "name": "Testimonials",
       "blocks": [
         {
-          "type": "testimonial"
+          "type": "testimonial",
+          "settings": {
+            "customer_initial": "S",
+            "customer_full_name": "Sarah Mitchell",
+            "star_rating": 5,
+            "title": "<p>\"After 3 weeks on DigestiDetox, my bloating has completely disappeared. I feel lighter, more energetic, and my digestion is smoother than it's been in years.\"</p>"
+          }
         },
         {
-          "type": "testimonial"
+          "type": "testimonial",
+          "settings": {
+            "customer_initial": "N",
+            "customer_full_name": "Nicholas Nelson",
+            "star_rating": 5,
+            "title": "<p>\"After 3 weeks on DigestiDetox, my bloating has completely disappeared. I feel lighter, more energetic, and my digestion is smoother than it's been in years.\"</p>"
+          }
         },
         {
-          "type": "testimonial"
+          "type": "testimonial",
+          "settings": {
+            "customer_initial": "J",
+            "customer_full_name": "Jim Leon",
+            "star_rating": 5,
+            "title": "<p>\"After 3 weeks on DigestiDetox, my bloating has completely disappeared. I feel lighter, more energetic, and my digestion is smoother than it's been in years.\"</p>"
+          }
         },
         {
-          "type": "testimonial"
+          "type": "testimonial",
+          "settings": {
+            "customer_initial": "R",
+            "customer_full_name": "Robert Norris",
+            "star_rating": 5,
+            "title": "<p>\"After 3 weeks on DigestiDetox, my bloating has completely disappeared. I feel lighter, more energetic, and my digestion is smoother than it's been in years.\"</p>"
+          }
         }
       ]
     }
@@ -770,20 +888,16 @@
 <script type="application/json" data-wbs="{{ section.id }}">
   {
     "id": {{ section.id | json }},
-    "animation": {{ section.settings.animation | json }}
+    "animation": {{ section.settings.animation | default: 'none' | json }}
   }
 </script>
+
 {%- comment -%} JavaScript {%- endcomment -%}
-<script
-  data-wbs-js="{{ section.id }}"
-  type="module"
-  defer
->
+<script data-wbs-js="{{ section.id }}" type="module" defer>
 (function(){
   const wbsPack = {
     settings: {},
     animateSection: function(entries, observer){
-      // Target the first entry available.
       let observedSection = entries[0];
       if (observedSection.isIntersecting) {
         observedSection.target.classList.add('wbs__animation-applied');
@@ -794,8 +908,8 @@
       const pause_button = play_button.nextElementSibling;
       video.play();
       play_button.classList.add('wbs__playing');
-      pause_button.classList.add('wbs__playing')
-      video.addEventListener("ended", (event) => {
+      pause_button.classList.add('wbs__playing');
+      video.addEventListener("ended", () => {
         play_button.classList.remove('wbs__playing');
         pause_button.classList.remove('wbs__playing');
       });
@@ -808,52 +922,39 @@
       pause_button.classList.remove('wbs__playing');
     },
     load: function(section){
-      const play_buttons = section.querySelectorAll(`.wbs__play-button`);
-      const pause_buttons = section.querySelectorAll(`.wbs__pause-button`);
+      const play_buttons = section.querySelectorAll('.wbs__play-button');
+      const pause_buttons = section.querySelectorAll('.wbs__pause-button');
 
-      play_buttons.forEach((play_button) => {
-        play_button.addEventListener('click', (e) => {
-          this.playVideo(e.target)
-        });
+      play_buttons.forEach((btn) => {
+        btn.addEventListener('click', (e) => { this.playVideo(e.target); });
+      });
+      pause_buttons.forEach((btn) => {
+        btn.addEventListener('click', (e) => { this.pauseVideo(e.target); });
       });
 
-      pause_buttons.forEach((pause_button) => {
-        pause_button.addEventListener('click', (e) => {
-          this.pauseVideo(e.target)
-        });
-      });
-
-      if (this.settings.animation !== 'none'){
-        const options = {
+      if (this.settings.animation !== 'none') {
+        const observer = new IntersectionObserver(this.animateSection, {
           root: null,
           rootMargin: '0px',
           threshold: [0, 0.25, 0.5, 0.75, 1]
-        };
-        // Construct Intersection Observer.
-        const observer = new IntersectionObserver( this.animateSection, options );
-        // Observe if element is present.
-        if (section) {
-          observer.observe(section);
-        }
+        });
+        if (section) observer.observe(section);
       }
     },
     unload: function(section){
-      section.classList.remove('wbs__animation-applied')
+      section.classList.remove('wbs__animation-applied');
     }
-  }
-  window.addEventListener('shopify:section:unload', function (e) {
-    const settings = document.querySelector(`[data-wbs="${e.detail.sectionId}"]`);
+  };
+
+  window.addEventListener('shopify:section:unload', function(e) {
     const sectionId = e.detail.sectionId;
-    const section = document.querySelector(`#WP--${e.detail.sectionId}`);
-    if (sectionId == wbsPack.settings.id){
-      wbsPack.unload(section);
-    }
+    const section = document.querySelector(`#WP--${sectionId}`);
+    if (sectionId == wbsPack.settings.id) wbsPack.unload(section);
   });
+
   wbsPack.settings = JSON.parse(document.querySelector('[data-wbs="{{ section.id }}"]').innerHTML);
   const sectionId = {{ section.id | json }};
   const section = document.querySelector(`#WP--${sectionId}`);
-  if (sectionId == wbsPack.settings.id){
-    wbsPack.load(section);
-  }
-})()
+  if (sectionId == wbsPack.settings.id) wbsPack.load(section);
+})();
 </script>

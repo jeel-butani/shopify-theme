@@ -138,7 +138,7 @@
       "type": "featured-collection",
       "custom_css": [
         ".card-wrapper:hover .media.media--hover-effect > img + img {transform: none !important;}",
-        ".title {font-family: \"DM Serif Display\", Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400;}"
+        ".title {font-family: \"Montserrat\", Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400;}"
       ],
       "settings": {
         "title": "Best <em>Sellers</em>",
@@ -234,7 +234,7 @@
         "button_label": "BUILD YOUR STACK",
         "button_link": "shopify://collections/all",
         "accent_color": "#e8b86d",
-        "accent_hover": "#ec0000",
+        "accent_hover": "#c29956",
         "product_image": "shopify://shop_images/33_3.png"
       }
     },
@@ -312,7 +312,6 @@
         "text_color": "#121212",
         "border_color": "#121212",
         "background_color": "",
-        "border_radius": 10,
         "base_width": 100,
         "max_width": "",
         "inner_padding": 40,
@@ -328,49 +327,50 @@
     "complete_routine_new": {
       "type": "complete-routine",
       "blocks": {
-        "item_1": {
-          "type": "checklist_item",
+        "product_item_pLzc6J": {
+          "type": "product_item",
           "settings": {
-            "label": "Foundation Support",
-            "is_checked": true
+            "product_handle": "",
+            "item_name": "DigestiDetox Balance",
+            "item_price": "£34.99",
+            "product_url": ""
           }
         },
-        "item_2": {
-          "type": "checklist_item",
+        "product_item_CDMdbj": {
+          "type": "product_item",
           "settings": {
-            "label": "Digestive Enzyme",
-            "is_checked": false
+            "product_handle": "",
+            "item_name": "Probiotic Restore+",
+            "item_price": "£29.99",
+            "product_url": ""
           }
         },
-        "item_3": {
-          "type": "checklist_item",
+        "product_item_DixUXE": {
+          "type": "product_item",
           "settings": {
-            "label": "Probiotic Power",
-            "is_checked": false
-          }
-        },
-        "item_4": {
-          "type": "checklist_item",
-          "settings": {
-            "label": "Daily Multivitamin",
-            "is_checked": false
+            "product_handle": "",
+            "item_name": "Immunity Complex Pro",
+            "item_price": "£29.99",
+            "product_url": ""
           }
         }
       },
       "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4"
+        "product_item_pLzc6J",
+        "product_item_CDMdbj",
+        "product_item_DixUXE"
       ],
       "settings": {
-        "heading": "Complete Your <em>Routine</em>",
-        "subtitle": "Our synergy blends are crafted to work together — so you can build your optimal daily stack.",
+        "heading_before_accent": "Complete Your",
+        "heading_accent": "Routine",
+        "subtitle": "Personalise your wellness stack with our science-backed pairings.",
         "form_title": "Customize Your Routine",
+        "form_subtitle": "Pairs well with what's in your cart",
         "background_color": "#f8f8f6",
         "heading_color": "#1a1a1a",
         "text_color": "#555555",
-        "accent_color": "#2d7a3a"
+        "accent_color": "#2d7a3a",
+        "product_image": "shopify://shop_images/878.png"
       }
     },
     "testimonial_PBzNcc": {
@@ -432,7 +432,7 @@
         "testimonial_NWTFBy"
       ],
       "custom_css": [
-        ".wbs__heading {font-family: \"DM Serif Display\", Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 400;}"
+        ".wbs__heading {font-family: \"Montserrat\", Georgia, serif !important; color: #2d7a3a !important; font-style: italic; font-weight: 700;}"
       ],
       "settings": {
         "title": "What Our Customers Say",
@@ -978,7 +978,6 @@
         "text_color": "#121212",
         "border_color": "#121212",
         "background_color": "",
-        "border_radius": 10,
         "base_width": 100,
         "max_width": "",
         "inner_padding": 40,

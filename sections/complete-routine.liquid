@@ -5,29 +5,44 @@
   }
 
   #complete-routine-{{ section.id }} .routine__inner {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 5%;
   }
 
+  /* ── Header ── */
   #complete-routine-{{ section.id }} .routine__header {
     text-align: center;
     margin-bottom: 40px;
   }
 
   #complete-routine-{{ section.id }} .routine__heading {
-    font-family: 'DM Serif Display', 'Georgia', serif;
-    font-size: clamp(28px, 3.5vw, 42px);
-    font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(30px, 4vw, 50px);
+    font-weight: 700;
+    letter-spacing: 0.5px;
     color: {{ section.settings.heading_color }};
     margin: 0 0 12px 0;
-    line-height: 1.2;
+    line-height: 1.15;
   }
 
+  /* "Complete Your" part — green */
+  #complete-routine-{{ section.id }} .routine__heading .heading-main {
+    color: #307e3d;
+    font-style: normal;
+  }
+
+  /* "Routine" part — blue italic */
+  #complete-routine-{{ section.id }} .routine__heading .heading-accent {
+    color: #3b6db3;
+    font-style: italic;
+  }
+
+  /* Fallback: keep em/i support too */
   #complete-routine-{{ section.id }} .routine__heading em,
   #complete-routine-{{ section.id }} .routine__heading i {
     font-style: italic;
-    color: {{ section.settings.accent_color }};
+    color: #3b6db3;
   }
 
   #complete-routine-{{ section.id }} .routine__subtitle {
@@ -39,86 +54,122 @@
     opacity: 0.8;
   }
 
+  /* ── Two-column grid ── */
   #complete-routine-{{ section.id }} .routine__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 40px;
     align-items: center;
   }
 
-  /* ── Form/checklist card ── */
+  /* ── Card (left) ── */
   #complete-routine-{{ section.id }} .routine__form-card {
     background: #ffffff;
-    border-radius: 12px;
-    padding: 28px 24px;
+    border-radius: 16px;
+    padding: 32px 28px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     border: 1px solid #eee;
   }
 
   #complete-routine-{{ section.id }} .routine__form-title {
-    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
     font-weight: 700;
-    color: #222;
-    margin: 0 0 20px 0;
-    padding-bottom: 14px;
-    border-bottom: 1px solid #eee;
+    color: #1a1a1a;
+    margin: 0 0 6px 0;
   }
 
+  #complete-routine-{{ section.id }} .routine__form-subtitle {
+    font-size: 13px;
+    color: #888;
+    margin: 0 0 24px 0;
+    font-weight: 400;
+  }
+
+  /* ── Product rows ── */
   #complete-routine-{{ section.id }} .routine__form-items {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
   }
 
   #complete-routine-{{ section.id }} .routine__form-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 12px;
-    padding: 10px 14px;
-    border-radius: 8px;
+    padding: 14px 16px;
+    border-radius: 10px;
     background: #f8f9fa;
-    border: 1px solid #eaeaea;
-    transition: all 0.2s ease;
+    border: 1px solid #ebebeb;
+    transition: border-color 0.2s ease, background 0.2s ease;
   }
 
   #complete-routine-{{ section.id }} .routine__form-item:hover {
     border-color: {{ section.settings.accent_color }};
-    background: #f0f8f0;
+    background: #f2f8f2;
   }
 
-  #complete-routine-{{ section.id }} .routine__form-check {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    border-radius: 4px;
-    border: 2px solid #ccc;
+  /* Product info (left side of row) */
+  #complete-routine-{{ section.id }} .routine__item-info {
     display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  #complete-routine-{{ section.id }} .routine__item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #complete-routine-{{ section.id }} .routine__item-price {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  /* "+ Add" button */
+  #complete-routine-{{ section.id }} .routine__add-btn {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: #fff;
+    gap: 4px;
+    background: #4a7c59;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.1s ease;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
   }
 
-  #complete-routine-{{ section.id }} .routine__form-item--checked .routine__form-check {
-    background: {{ section.settings.accent_color }};
-    border-color: {{ section.settings.accent_color }};
+  #complete-routine-{{ section.id }} .routine__add-btn:hover {
+    background: #3a6347;
+    transform: translateY(-1px);
   }
 
-  #complete-routine-{{ section.id }} .routine__form-check svg {
-    width: 12px;
-    height: 12px;
-    fill: #ffffff;
+  #complete-routine-{{ section.id }} .routine__add-btn:active {
+    transform: translateY(0);
   }
 
-  #complete-routine-{{ section.id }} .routine__form-label {
-    font-size: 14px;
-    color: #444;
-    font-weight: 500;
-  }
-
-  /* ── Product image ── */
+  /* ── Image column (right) ── */
   #complete-routine-{{ section.id }} .routine__image-col {
     display: flex;
     justify-content: center;
@@ -126,11 +177,11 @@
   }
 
   #complete-routine-{{ section.id }} .routine__product-img {
-    max-width: 380px;
     width: 100%;
-    border-radius: 12px;
+    max-width: 560px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
   }
 
   #complete-routine-{{ section.id }} .routine__product-img img {
@@ -140,6 +191,7 @@
     object-fit: cover;
   }
 
+  /* ── Responsive ── */
   @media (max-width: 768px) {
     #complete-routine-{{ section.id }} {
       padding: 40px 0;
@@ -147,55 +199,100 @@
 
     #complete-routine-{{ section.id }} .routine__grid {
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 28px;
+    }
+
+    /* Show image above card on mobile */
+    #complete-routine-{{ section.id }} .routine__image-col {
+      order: -1;
     }
 
     #complete-routine-{{ section.id }} .routine__product-img {
-      max-width: 280px;
-      margin: 0 auto;
+      max-width: 100%;
+      border-radius: 14px;
+    }
+
+    #complete-routine-{{ section.id }} .routine__form-card {
+      padding: 24px 18px;
     }
   }
 {%- endstyle -%}
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <section id="complete-routine-{{ section.id }}">
   <div class="routine__inner">
+
+    <!-- Header -->
     <div class="routine__header">
-      {%- if section.settings.heading != blank -%}
-        <h2 class="routine__heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.heading_before_accent != blank or section.settings.heading_accent != blank -%}
+        <h2 class="routine__heading">
+          <span class="heading-main">{{ section.settings.heading_before_accent }}</span>
+          <em class="heading-accent">{{ section.settings.heading_accent }}</em>
+        </h2>
       {%- endif -%}
       {%- if section.settings.subtitle != blank -%}
         <p class="routine__subtitle">{{ section.settings.subtitle }}</p>
       {%- endif -%}
     </div>
 
+    <!-- Grid -->
     <div class="routine__grid">
+
+      <!-- LEFT: Product list card -->
       <div class="routine__form-card">
         {%- if section.settings.form_title != blank -%}
           <h3 class="routine__form-title">{{ section.settings.form_title }}</h3>
         {%- endif -%}
+        {%- if section.settings.form_subtitle != blank -%}
+          <p class="routine__form-subtitle">{{ section.settings.form_subtitle }}</p>
+        {%- endif -%}
+
         <ul class="routine__form-items">
           {%- for block in section.blocks -%}
-            <li class="routine__form-item{% if block.settings.is_checked %} routine__form-item--checked{% endif %}" {{ block.shopify_attributes }}>
-              <span class="routine__form-check">
-                {%- if block.settings.is_checked -%}
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                {%- endif -%}
-              </span>
-              <span class="routine__form-label">{{ block.settings.label }}</span>
+            {%- assign product = all_products[block.settings.product_handle] -%}
+            <li class="routine__form-item" {{ block.shopify_attributes }}>
+              <div class="routine__item-info">
+                <p class="routine__item-name">
+                  {%- if product != blank -%}
+                    {{ product.title }}
+                  {%- else -%}
+                    {{ block.settings.item_name }}
+                  {%- endif -%}
+                </p>
+                <p class="routine__item-price">
+                  {%- if product != blank -%}
+                    {{ product.price | money }}
+                  {%- elsif block.settings.item_price != blank -%}
+                    {{ block.settings.item_price }}
+                  {%- endif -%}
+                </p>
+              </div>
+              {%- if product != blank -%}
+                <a href="{{ product.url }}" class="routine__add-btn">+ Add</a>
+              {%- elsif block.settings.product_url != blank -%}
+                <a href="{{ block.settings.product_url }}" class="routine__add-btn">+ Add</a>
+              {%- else -%}
+                <button class="routine__add-btn" type="button">+ Add</button>
+              {%- endif -%}
             </li>
           {%- endfor -%}
         </ul>
       </div>
 
+      <!-- RIGHT: Product image -->
       <div class="routine__image-col">
         {%- if section.settings.product_image != blank -%}
           <div class="routine__product-img">
-            {{ section.settings.product_image | image_url: width: 800 | image_tag: sizes: '(min-width: 768px) 380px, 280px', widths: '280, 380, 560, 760, 800' }}
+            {{ section.settings.product_image | image_url: width: 1120 | image_tag:
+              loading: 'lazy',
+              sizes: '(min-width: 768px) 560px, 100vw',
+              widths: '400, 560, 800, 1000, 1120'
+            }}
           </div>
         {%- endif -%}
       </div>
+
     </div>
   </div>
 </section>
@@ -210,16 +307,30 @@
   },
   "settings": [
     {
-      "type": "inline_richtext",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Complete Your <em>Routine</em>"
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading_before_accent",
+      "label": "Heading — main words (green)",
+      "default": "Complete Your"
+    },
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Heading — accent word (blue italic)",
+      "default": "Routine"
     },
     {
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "Our synergy blends are crafted to work together — so you can build your optimal daily stack."
+      "default": "Personalise your wellness stack with our science-backed pairings."
+    },
+    {
+      "type": "header",
+      "content": "Card"
     },
     {
       "type": "text",
@@ -236,7 +347,7 @@
     {
       "type": "color",
       "id": "heading_color",
-      "label": "Heading color",
+      "label": "Heading color (fallback)",
       "default": "#1a1a1a"
     },
     {
@@ -248,31 +359,47 @@
     {
       "type": "color",
       "id": "accent_color",
-      "label": "Accent color",
+      "label": "Accent / hover color",
       "default": "#2d7a3a"
+    },
+    {
+      "type": "header",
+      "content": "Image"
     },
     {
       "type": "image_picker",
       "id": "product_image",
-      "label": "Product image"
+      "label": "Product image (right side)"
     }
   ],
   "blocks": [
     {
-      "type": "checklist_item",
-      "name": "Routine Item",
+      "type": "product_item",
+      "name": "Product Item",
       "settings": [
         {
-          "type": "text",
-          "id": "label",
-          "label": "Item label",
-          "default": "Foundation Support"
+          "type": "product",
+          "id": "product_handle",
+          "label": "Product",
+          "info": "Select a product — name, price and link will be pulled automatically."
         },
         {
-          "type": "checkbox",
-          "id": "is_checked",
-          "label": "Pre-checked?",
-          "default": false
+          "type": "text",
+          "id": "item_name",
+          "label": "Fallback name (if no product selected)",
+          "default": "Product Name"
+        },
+        {
+          "type": "text",
+          "id": "item_price",
+          "label": "Fallback price (if no product selected)",
+          "default": "£29.99",
+          "info": "e.g. £29.99 — only used when no product is selected above."
+        },
+        {
+          "type": "url",
+          "id": "product_url",
+          "label": "Fallback URL (if no product selected)"
         }
       ]
     }
@@ -282,20 +409,25 @@
       "name": "Complete Routine",
       "blocks": [
         {
-          "type": "checklist_item",
-          "settings": { "label": "Foundation Support", "is_checked": true }
+          "type": "product_item",
+          "settings": {
+            "item_name": "DigestiDetox Balance",
+            "item_price": "£34.99"
+          }
         },
         {
-          "type": "checklist_item",
-          "settings": { "label": "Digestive Enzyme", "is_checked": false }
+          "type": "product_item",
+          "settings": {
+            "item_name": "Probiotic Restore+",
+            "item_price": "£29.99"
+          }
         },
         {
-          "type": "checklist_item",
-          "settings": { "label": "Probiotic Power", "is_checked": false }
-        },
-        {
-          "type": "checklist_item",
-          "settings": { "label": "Daily Multivitamin", "is_checked": false }
+          "type": "product_item",
+          "settings": {
+            "item_name": "Immunity Complex Pro",
+            "item_price": "£29.99"
+          }
         }
       ]
     }
