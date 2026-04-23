@@ -238,6 +238,93 @@
         "product_image": "shopify://shop_images/33_3.png"
       }
     },
+    "video_slider_9bwUqf": {
+      "type": "video-slider",
+      "blocks": {
+        "video_aQpK4Q": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/VID_5_9d3c3479-9e7e-4f39-bb51-cae27f0c6cdf.mp4",
+            "product": "florablend-plus",
+            "collection": ""
+          }
+        },
+        "video_nUa6Hp": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/WhatsApp Video 2025-03-06 at 23.02.32_5a1616db_803847ee-61a8-49cf-b625-eda4dd6aa1e3.mp4",
+            "product": "fibrocleanse-plus",
+            "collection": ""
+          }
+        },
+        "video_MtanhJ": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/VID-20250402-WA0019_972a8e8a-6823-4463-9a87-c35a1ca641cc.mp4",
+            "product": "colonvital-blend",
+            "collection": ""
+          }
+        },
+        "video_bTkLCM": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/VID_6_8a4e3ba8-d1f1-4ad0-8c22-bbcd33f40725.mp4",
+            "product": "brain-booster",
+            "collection": ""
+          }
+        },
+        "video_BiPJPK": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/WhatsApp Video 2025-04-01 at 23.43.04_e00280ce-df18-41b6-a82f-b433dda2f5fc.mp4",
+            "product": "ashwagandha-vitality-blend",
+            "collection": ""
+          }
+        },
+        "video_dDgPW3": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/VID-20250402-WA0018(1)_12e37568-e30e-483f-b821-3289ff2668f7.mp4",
+            "product": "apple-cider-vinegar",
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_aQpK4Q",
+        "video_nUa6Hp",
+        "video_MtanhJ",
+        "video_bTkLCM",
+        "video_BiPJPK",
+        "video_dDgPW3"
+      ],
+      "name": "Video carousel",
+      "settings": {
+        "title": "The Social Shelf",
+        "slide_width": 300,
+        "image_crop": "none",
+        "aspect_ratio": "229:350",
+        "autoplay": 8,
+        "gap": 10,
+        "show_arrows": false,
+        "text_size": 100,
+        "text_alignment": "left",
+        "text_color": "#121212",
+        "border_color": "#121212",
+        "background_color": "",
+        "border_radius": 10,
+        "base_width": 100,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "anchor_id": "",
+        "override_theme_font": false,
+        "heading_font": "montserrat_n4",
+        "main_font": "system_ui_n4"
+      }
+    },
     "complete_routine_new": {
       "type": "complete-routine",
       "blocks": {
@@ -879,6 +966,7 @@
       ],
       "disabled": true,
       "settings": {
+        "title": "The Social Shelf",
         "slide_width": 300,
         "image_crop": "none",
         "aspect_ratio": "9:16",
@@ -1002,6 +1090,7 @@
     "featured_collection1",
     "collection_list",
     "stack_smarter_new",
+    "video_slider_9bwUqf",
     "complete_routine_new",
     "testimonial_PBzNcc",
     "content_image_slider_gTTKcH",
